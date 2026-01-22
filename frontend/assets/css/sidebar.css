@@ -1,0 +1,179 @@
+/* --- LAYOUT CONTAINER --- */
+.admin-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f7f6;
+}
+
+/* --- SIDEBAR BASE STYLE --- */
+.sidebar {
+  width: 260px;
+  height: 100vh; /* Full height */
+  background-color: #1e4d2b;
+  color: white;
+
+  /* LAYOUT: Sticky ensures it stays on screen but doesn't cover content */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  flex-shrink: 0; /* Prevent width shrinking */
+  transition: width 0.3s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+/* --- COLLAPSED STATE --- */
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* --- HEADER & TOGGLE --- */
+.sidebar-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  background-color: #163e22;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0; /* Header size never changes */
+}
+
+.brand-flex {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: opacity 0.2s;
+}
+
+.sidebar-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.brand-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Hide Brand Name when collapsed */
+.sidebar.collapsed .brand-text {
+  display: none;
+}
+.sidebar.collapsed .brand-flex {
+  display: none;
+}
+.sidebar.collapsed .sidebar-header {
+  justify-content: center;
+  padding: 0;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Rotate button when collapsed */
+.sidebar.collapsed .toggle-btn {
+  transform: rotate(180deg);
+}
+
+/* --- NAVIGATION LINKS --- */
+.nav-links {
+  list-style: none;
+  padding: 20px 0;
+
+  /* CRITICAL FIXES FOR LOGOUT BUTTON: */
+  flex-grow: 1; /* Take up all available middle space */
+  overflow-y: auto; /* Scroll ONLY links if screen is short */
+  scrollbar-width: thin; /* Modern thin scrollbar */
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  padding: 15px 22px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: 0.2s;
+  border-left: 4px solid transparent;
+  height: 50px;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-left-color: #d4a017;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  min-width: 25px;
+  text-align: center;
+  margin-right: 15px;
+}
+
+/* Collapse Logic for Links */
+.sidebar.collapsed .link-text {
+  display: none;
+}
+.sidebar.collapsed .nav-links li a {
+  justify-content: center;
+  padding: 15px 0;
+}
+.sidebar.collapsed .nav-icon {
+  margin-right: 0;
+}
+
+/* --- FOOTER (LOGOUT) --- */
+.sidebar-footer {
+  padding: 20px 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #1a4326;
+  flex-shrink: 0; /* Ensure footer NEVER shrinks/hides */
+}
+
+.logout-link {
+  color: #eebb90; /* Gold/Orange Color */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.logout-link:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.logout-link .nav-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.sidebar.collapsed .logout-link {
+  justify-content: center;
+}

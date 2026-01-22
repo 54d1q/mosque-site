@@ -1,0 +1,116 @@
+/* --- HERO SECTION --- */
+.page-hero {
+  height: 300px;
+  background:
+    linear-gradient(rgba(30, 77, 43, 0.8), rgba(30, 77, 43, 0.6)),
+    url("/images/education-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  font-family: serif;
+  margin: 0;
+}
+
+/* --- MAIN CONTAINER --- */
+.service-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5% 80px;
+}
+
+.intro-text {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  text-align: center;
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* --- CARDS GRID --- */
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.edu-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.edu-img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.edu-body {
+  padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-body h3 {
+  color: #1e4d2b;
+  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+}
+
+.edu-body p {
+  color: #666;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+/* --- BUTTONS --- */
+.btn-outline {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 2px solid #1e4d2b;
+  color: #1e4d2b;
+  background: transparent;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: #1e4d2b;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+}

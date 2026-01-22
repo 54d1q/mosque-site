@@ -1,0 +1,211 @@
+/* Inherit Global Settings */
+body {
+  background-color: #fcfcfc;
+}
+
+/* --- HERO SECTION --- */
+.page-hero {
+  height: 250px;
+  /* Darker overlay for respectful tone */
+  background:
+    linear-gradient(rgba(20, 20, 20, 0.7), rgba(30, 77, 43, 0.7)),
+    url("../../../images/death.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  font-family: serif;
+  margin: 0;
+}
+
+/* --- CONTAINER & BREADCRUMBS --- */
+.service-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+.breadcrumbs {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.breadcrumbs a {
+  color: #1e4d2b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* --- MAIN LAYOUT --- */
+.content-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* --- TEXT CONTENT --- */
+.arabic-quote {
+  font-size: 1.8rem;
+  color: #1e4d2b;
+  font-family: "Traditional Arabic", serif;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.translation {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+.text-content h2 {
+  color: #1e4d2b;
+  font-size: 2.2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.text-content h3 {
+  color: #333;
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-left: 4px solid #1e4d2b; /* Green Accent */
+  padding-left: 10px;
+}
+
+.text-content p {
+  line-height: 1.7;
+  color: #555;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+/* Highlight Box (Emergency Info) */
+.highlight-box {
+  background-color: #fdf2f2; /* Very light red/alert tint */
+  border: 1px solid #fadbd8;
+  color: #922b21;
+  padding: 20px;
+  border-radius: 6px;
+  margin: 25px 0;
+  line-height: 1.6;
+}
+
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.requirements-list li {
+  padding: 10px 0 10px 25px;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+  color: #444;
+}
+
+.requirements-list li::before {
+  content: "▪";
+  position: absolute;
+  left: 0;
+  color: #1e4d2b;
+  font-size: 1.5rem;
+  line-height: 1rem;
+  top: 12px;
+}
+
+/* --- BUTTONS --- */
+.action-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: #1e4d2b;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #153e21;
+}
+
+.btn-outline {
+  border: 2px solid #1e4d2b;
+  color: #1e4d2b;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background-color: #1e4d2b;
+  color: white;
+}
+
+/* --- IMAGE CONTENT --- */
+.image-content {
+  background: white;
+  padding: 15px;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.service-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .content-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+
+  .image-content {
+    margin-top: 30px;
+    order: -1;
+  }
+}

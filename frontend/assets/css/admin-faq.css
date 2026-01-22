@@ -1,0 +1,350 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+/* =======================================================
+   2. SIDEBAR (DESKTOP)
+   ======================================================= */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #1e4d2b;
+  color: #fff;
+  transition: width 0.3s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #f1c40f;
+}
+
+.sidebar.collapsed .nav-icon {
+  margin-right: 0;
+}
+
+/* =======================================================
+   3. MAIN CONTENT LAYOUT
+   ======================================================= */
+.main-content {
+  margin-left: 260px;
+  padding: 30px;
+  transition: margin-left 0.3s;
+  width: calc(100% - 260px);
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: 70px;
+  width: calc(100% - 70px);
+}
+
+/* FAQ GRID - Side-by-side on desktop */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+/* =======================================================
+   4. PAGE HEADER
+   ======================================================= */
+.page-header {
+  background: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.page-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.page-title {
+  margin: 0;
+  color: #1e4d2b;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 2px 0 0 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* =======================================================
+   5. CARDS & FORMS
+   ======================================================= */
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.card-header {
+  background-color: #fcfcfc;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.card-header h3 {
+  margin: 0;
+  color: #1e4d2b;
+  font-size: 1.1rem;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+input,
+textarea {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #1e4d2b;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #1e4d2b;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #163e22;
+}
+
+/* =======================================================
+   6. FAQ LIST STYLES
+   ======================================================= */
+.faq-list-item {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.faq-content {
+  flex: 1;
+}
+
+.btn-delete {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.btn-delete:hover {
+  background: #ef9a9a;
+  color: white;
+}
+
+#list-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* =======================================================
+   7. MOBILE RESPONSIVENESS
+   ======================================================= */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+    padding-top: 80px;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Fixed Mobile Header */
+  .page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 5000;
+    padding: 0 15px;
+    margin: 0;
+    border-radius: 0;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-left {
+    display: contents;
+  }
+
+  .page-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .subtitle {
+    display: none;
+  }
+
+  .page-title {
+    font-size: 1rem;
+  }
+
+  /* Hamburger Menu Button */
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 24px;
+    height: 3px;
+    background: #1e4d2b;
+    transition: 0.3s;
+  }
+
+  /* Sidebar as Dropdown on Mobile */
+  .sidebar {
+    top: 60px;
+    width: 100%;
+    height: auto;
+    background: white;
+    border-bottom: 3px solid #1e4d2b;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .sidebar.active {
+    max-height: 100vh;
+  }
+
+  .sidebar-header {
+    display: none;
+  }
+
+  .nav-links li a {
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-icon {
+    color: #1e4d2b;
+  }
+
+  .link-text {
+    display: inline-block;
+    color: #333;
+  }
+
+  /* Mobile Logout Pill */
+  .sidebar-footer {
+    display: block;
+    padding: 20px;
+    border-top: none;
+    text-align: center;
+    background: transparent;
+  }
+
+  .logout-link {
+    display: inline-flex;
+    padding: 10px 25px;
+    background-color: #ffebee;
+    border-radius: 30px;
+    width: auto;
+  }
+}
+
+/* Hide Hamburger on Desktop */
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Brief Overview - SMIC</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <link rel="stylesheet" href="/about-us/css/overview.css" />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/shahjalalmosqueislamiccentre/"
+          >Facebook</a
+        >
+        <a href="#">Twitter</a>
+        <a href="https://www.instagram.com/smic_southampton/">Instagram</a>
+        <a
+          href="https://www.youtube.com/channel/UCuvJlzzyMhPoExa1GqQ_aNw/videos"
+          >YouTube</a
+        >
+      </div>
+      <div class="top-bar-content">
+        <div class="contact-info">
+          <span>📞 07411912205</span>
+          <span>📧smicsouthampton.co.uk</span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="logo-section">
+        <a
+          href="/"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+          "
+        >
+          <img
+            src="/images/mosque-logo.png"
+            alt="Mosque Logo"
+            class="logo-img"
+          />
+          <div class="school-name">Shahjalal Mosque<br />& Islamic Center</div>
+        </a>
+      </div>
+      <div class="hamburger" onclick="toggleMobileMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav class="nav-menu">
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">About Us</span>
+          <ul class="dropdown-content">
+            <li><a href="/about/overview">A Brief Overview</a></li>
+            <li><a href="/about/staff">Staff Directory</a></li>
+            <li><a href="/about/vision">Vision & Values</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">Services</span>
+          <ul class="dropdown-content">
+            <li><a href="/services/education">Education</a></li>
+            <li>
+              <a href="/services/marriage">Marriage/Nikah</a>
+            </li>
+            <li>
+              <a href="/services/funeral">Funeral/Janazah</a>
+            </li>
+            <li><a href="/services/ask-imam">Ask Imam</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">Audio & Video</span>
+          <ul class="dropdown-content">
+            <li><a href="/media/recordings">Recordings</a></li>
+            <li><a href="/media/gallery">Event Gallery</a></li>
+          </ul>
+        </div>
+
+        <a href="/donate" class="nav-donate-btn">Donate</a>
+
+        <a href="/login" class="portal-btn">Teacher Portal 🔒</a>
+      </nav>
+    </header>
+
+    <div class="page-hero">
+      <h1>About Our Mosque</h1>
+    </div>
+
+    <div class="service-container">
+      <div class="breadcrumbs">
+        <a href="/">Home</a> &gt; <a href="#">About Us</a> &gt;
+        <span>Overview</span>
+      </div>
+
+      <div class="content-layout">
+        <div class="text-content">
+          <h2>A Brief Overview</h2>
+
+          <p
+            style="
+              font-style: italic;
+              font-size: 1.2rem;
+              color: #1e4d2b;
+              border-left: 4px solid #1e4d2b;
+              padding-left: 15px;
+              margin: 30px 0;
+              background: #f9fbf9;
+              padding: 20px;
+            "
+          >
+            “ Our mission is to Serve, Educate and Inspire through faith and
+            action. ”
+          </p>
+
+          <p>
+            The Shahjalal Mosque & Islamic Center, which serves the Southampton
+            community, has a rich
+            <strong>history</strong>, with roots established decades ago. It has
+            gone on to become one of the most active Islamic institutions in the
+            region, serving as a hub for prayer, learning, and community
+            cohesion.
+          </p>
+
+          <h3>Our Services</h3>
+          <p>
+            We offer a wide range of services from our complex to support the
+            needs of our diverse community. In addition to the daily
+            <strong>prayers</strong> and Jumu'ah, we provide:
+          </p>
+
+          <ul class="requirements-list">
+            <li>Advice and Counselling</li>
+            <li>Education for Children and Adults</li>
+            <li>Marriage Services</li>
+            <li>Funeral & Death Services</li>
+            <li>Community Events & Charity</li>
+          </ul>
+
+          <div class="highlight-box">
+            <strong>Need to get in touch?</strong><br />
+            <br />
+            Phone: 07411912205<br />E-mail: smicsouthampton.co.uk<br />
+            <br />
+
+            <span style="font-size: 0.9rem; opacity: 0.8">
+              Alternatively, you can visit
+              <a href="/" style="text-decoration: underline; color: inherit"
+                >Home Page</a
+              >
+              and use the contact us form to submit your query. <br />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <h2>Shahjalal Mosque and Islamic Center</h2>
+      <p>121 Saint Mary's Rd, Southampton SO14 0BL</p>
+      <p>&copy; 2025 Shahjalal Mosque and Islamic Center</p>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+/* Inherit Global Settings */
+body {
+  background-color: #fcfcfc;
+}
+
+/* Hero */
+.page-hero {
+  height: 250px;
+  background:
+    linear-gradient(rgba(30, 77, 43, 0.9), rgba(30, 77, 43, 0.7)),
+    url("../../../images/ask-imam.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 40px;
+}
+.page-hero h1 {
+  font-size: 3rem;
+  font-family: serif;
+  margin: 0;
+}
+
+.service-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+/* Form Section */
+.intro-text {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.intro-text p {
+  color: #555;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.form-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  border-top: 5px solid #1e4d2b;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #1e4d2b;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #1e4d2b;
+  outline: none;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.btn-submit {
+  width: 100%;
+  background: #1e4d2b;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-submit:hover {
+  background: #153e21;
+}
+
+@media (max-width: 768px) {
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+}
+/* FAQ Section */
+.ai-faq-section {
+  margin-top: 60px;
+}
+.ai-faq-section h2 {
+  text-align: center;
+  color: #1e4d2b;
+  margin-bottom: 30px;
+}

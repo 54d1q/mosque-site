@@ -1,0 +1,137 @@
+body {
+  background-color: #fcfcfc;
+}
+
+/* Hero */
+.page-hero {
+  height: 250px;
+  background:
+    linear-gradient(rgba(30, 77, 43, 0.85), rgba(30, 77, 43, 0.7)),
+    url("../../../images/vision-values.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.page-hero h1 {
+  font-size: 3rem;
+  font-family: serif;
+  margin: 0;
+}
+
+/* Layout */
+.service-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+.breadcrumbs {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+.breadcrumbs a {
+  color: #1e4d2b;
+  text-decoration: none;
+  font-weight: 600;
+}
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* Typography */
+.section-heading {
+  color: #1e4d2b;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+.sub-heading {
+  color: #2c3e50;
+  font-size: 1.6rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-left: 4px solid #d4a017;
+  padding-left: 15px;
+}
+.text-block {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Quran Quote Block */
+.quran-quote {
+  background: #f4f9f4;
+  border-left: 5px solid #1e4d2b;
+  padding: 30px;
+  margin: 30px 0;
+  font-size: 1.3rem;
+  font-family: serif;
+  font-style: italic;
+  color: #1e4d2b;
+  text-align: center;
+  border-radius: 0 10px 10px 0;
+}
+.quran-quote span {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  font-style: normal;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Values List */
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+.values-list li {
+  margin-bottom: 25px;
+}
+.values-list strong {
+  color: #d4a017;
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 5px;
+}
+.values-list p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Highlight Box */
+.highlight-box {
+  background-color: #fffbf0;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  padding: 25px;
+  border-radius: 6px;
+  margin-top: 40px;
+  line-height: 1.6;
+  text-align: center;
+}
+.highlight-box strong {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 5px;
+  color: #e65100;
+}
+
+@media (max-width: 768px) {
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+}

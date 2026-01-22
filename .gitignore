@@ -1,0 +1,19 @@
+# Dependencies (never upload these!)
+node_modules/
+
+# Environment variables (keeps secrets safe)
+.env
+
+# Build outputs
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VS Code settings (optional, usually personal preference)
+.vscode/
+
+
+.vscode/launch.json

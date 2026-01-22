@@ -1,0 +1,125 @@
+/* --- HERO SECTION --- */
+.page-hero {
+  height: 300px;
+  background:
+    linear-gradient(rgba(30, 77, 43, 0.8), rgba(30, 77, 43, 0.6)),
+    url("../../../images/adult-education.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  font-family: serif;
+  margin: 0;
+}
+
+/* --- MAIN CONTAINER --- */
+.service-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5% 80px;
+}
+
+.detail-content-card {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  line-height: 1.8;
+  color: #333;
+  font-size: 1.05rem;
+}
+
+/* --- ACTIVITY LIST --- */
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+.activity-list li {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #eee;
+}
+.activity-list li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.activity-title {
+  font-weight: 700;
+  color: #1e4d2b;
+  font-size: 1.2rem;
+}
+.activity-time {
+  font-size: 0.9rem;
+  color: #d4a017;
+  font-weight: 600;
+  background: #fff9e6;
+  padding: 4px 10px;
+  border-radius: 15px;
+}
+.activity-desc {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- BUTTONS --- */
+.btn-outline {
+  display: inline-block;
+  padding: 10px 25px;
+  border: 2px solid #1e4d2b;
+  color: #1e4d2b;
+  background: transparent;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.btn-outline:hover {
+  background: #1e4d2b;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+  .detail-content-card {
+    padding: 25px;
+  }
+  .activity-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.activity-desc {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-top: 10px;
+  text-align: justify;
+}
+
+.activity-header {
+  margin-top: 10px;
+}

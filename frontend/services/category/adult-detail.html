@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adult Education - SMIC</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/services/css/adult-detail.css" />
+    <link rel="stylesheet" href="/assets/css/donate.css" />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/shahjalalmosqueislamiccentre/"
+          >Facebook</a
+        >
+        <a href="#">Twitter</a>
+        <a href="https://www.instagram.com/smic_southampton/">Instagram</a>
+        <a
+          href="https://www.youtube.com/channel/UCuvJlzzyMhPoExa1GqQ_aNw/videos"
+          >YouTube</a
+        >
+      </div>
+      <div class="top-bar-content">
+        <div class="contact-info">
+          <span>📞 07411912205</span>
+          <span>📧smicsouthampton.co.uk</span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="logo-section">
+        <a
+          href="/"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+          "
+        >
+          <img src="/images/mosque-logo.png" alt="Logo" class="logo-img" />
+          <div class="school-name">Shahjalal Mosque<br />& Islamic Center</div>
+        </a>
+      </div>
+      <div class="hamburger" onclick="toggleMobileMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav class="nav-menu">
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">About Us</span>
+          <ul class="dropdown-content">
+            <li><a href="/about/overview">A Brief Overview</a></li>
+            <li><a href="/about/staff">Staff Directory</a></li>
+            <li><a href="/about/vision">Vision & Values</a></li>
+          </ul>
+        </div>
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">Services</span>
+          <ul class="dropdown-content">
+            <li><a href="/services/education">Education</a></li>
+            <li><a href="/services/marriage">Marriage/Nikah</a></li>
+            <li><a href="/services/funeral">Funeral/Janazah</a></li>
+            <li><a href="/services/ask-imam">Ask Imam</a></li>
+          </ul>
+        </div>
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">Audio & Video</span>
+          <ul class="dropdown-content">
+            <li><a href="/media/recordings">Recordings</a></li>
+            <li><a href="/media/gallery">Event Gallery</a></li>
+          </ul>
+        </div>
+        <a href="/donate" class="nav-donate-btn">Donate</a>
+        <a href="/login" class="portal-btn">Teacher Portal 🔒</a>
+      </nav>
+    </header>
+
+    <div class="page-hero"><h1>Adult Education</h1></div>
+
+    <div class="service-container">
+      <div class="detail-content-card">
+        <p>
+          Our Adult Education programs are designed to provide spiritual growth
+          and knowledge for the community.
+        </p>
+        <ul class="activity-list">
+          <li>
+            <div class="activity-header">
+              <span class="activity-title">Halaqah (Study Circle)</span>
+              <span class="activity-time">Every Tuesday at 10:00 PM</span>
+            </div>
+            <p class="activity-desc">
+              Our weekly Halaqah is an interactive study circle where we explore
+              the depths of Islamic Fiqh (jurisprudence) and Seerah (prophetic
+              history). This session is designed to bridge traditional knowledge
+              with modern living, allowing attendees to discuss practical
+              applications of faith in their daily lives. It is a great
+              opportunity to ask questions, share insights, and grow together in
+              a relaxed, supportive environment.
+              <strong>Food will be provided at the end of the session.</strong>
+            </p>
+          </li>
+
+          <li>
+            <div class="activity-header">
+              <span class="activity-title">Darusul Quran</span>
+              <span class="activity-time">Every Sunday after Maghrib</span>
+            </div>
+            <p class="activity-desc">
+              The Darusul Quran sessions focus on the core connection between a
+              believer and the Book of Allah. These lessons cover proper Tajweed
+              (rules of recitation) to ensure the Quran is read correctly,
+              followed by a Tafseer (exegesis) segment. We delve into the
+              meanings and context of specific Surahs, helping you understand
+              the message of the Quran and how to implement its guidance into
+              your character and actions.
+            </p>
+          </li>
+
+          <li>
+            <div class="activity-header">
+              <span class="activity-title">Darusul Hadith</span>
+              <span class="activity-time">Mon - Thu after Zuhr</span>
+            </div>
+            <p class="activity-desc">
+              Held daily between Monday and Thursday, these short but powerful
+              sessions are dedicated to the study of Hadith, primarily focusing
+              on the famous compilation 'Riadus-Salihin' (The Meadows of the
+              Righteous). We examine the sayings and traditions of the Prophet
+              Muhammad (peace be upon him) to refine our manners, strengthen our
+              spirituality, and emulate his noble example in our community
+              dealings.
+            </p>
+          </li>
+        </ul>
+        <p style="color: red; margin: 20px 0">
+          Note: These services are <strong>male only</strong>
+        </p>
+        <a href="/services/education" class="btn-outline"
+          >← Back to Education</a
+        >
+      </div>
+    </div>
+
+    <footer>
+      <h2>Shahjalal Mosque and Islamic Center</h2>
+      <p>121 Saint Mary's Rd, Southampton SO14 0BL</p>
+      <p>&copy; 2025 Shahjalal Mosque and Islamic Center</p>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
+  </body>
+</html>

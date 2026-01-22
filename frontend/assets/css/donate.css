@@ -1,0 +1,306 @@
+:root {
+  --primary: #1e4d2b;
+  --gold: #f1c40f;
+  --bg: #f4f7f6;
+  --text: #2c3e50;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  margin: 0;
+  color: var(--text);
+}
+
+/* --- HEADER FIX --- */
+.donate-navbar {
+  background: white;
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.nav-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between; /* Pushes items apart */
+  align-items: center;
+}
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 12px;
+}
+.nav-logo {
+  height: 50px;
+  width: auto;
+}
+.brand-text {
+  color: var(--primary);
+  font-weight: bold;
+  line-height: 1.2;
+  font-size: 1.1rem;
+}
+
+.close-btn {
+  color: #666;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+  font-size: 1.1rem;
+}
+.close-btn:hover {
+  color: #c0392b;
+}
+
+/* --- LAYOUT --- */
+.donate-wrapper {
+  padding: 40px 20px;
+  min-height: 80vh;
+}
+.donate-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.donate-intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.donate-intro h1 {
+  color: var(--primary);
+  margin: 0 0 10px 0;
+}
+.donate-intro p {
+  color: #666;
+  margin: 0;
+}
+
+.donate-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.step-label {
+  font-weight: bold;
+  color: var(--primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+/* Amounts */
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.amt-btn {
+  padding: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #555;
+  transition: 0.2s;
+}
+.amt-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.amt-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  font-weight: bold;
+}
+
+.custom-amt {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 10px;
+}
+.custom-amt input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+/* Payment Methods */
+.payment-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.pay-tab {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+}
+.pay-tab.active {
+  border-color: var(--primary);
+  background: #f9fff9;
+  color: var(--primary);
+}
+
+.payment-content {
+  display: none;
+  animation: fadeUp 0.3s ease;
+}
+.payment-content.active {
+  display: block;
+}
+
+/* Form Elements */
+.input-group {
+  margin-bottom: 15px;
+}
+.row-inputs {
+  display: flex;
+  gap: 15px;
+}
+.input-group.half {
+  flex: 1;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 5px;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  color: #333;
+}
+.input-group input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.donate-submit-btn {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+.donate-submit-btn:hover {
+  background: #153e21;
+}
+.donate-submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.paypal-btn {
+  width: 100%;
+  background: #ffc439;
+  color: black;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.secure-text {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 15px;
+}
+
+/* Success Animation Overlay */
+.success-anim-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 9000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.success-anim-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.success-content {
+  text-align: center;
+  transform: scale(0.8);
+  transition: transform 0.3s;
+}
+.success-anim-container.active .success-content {
+  transform: scale(1);
+}
+
+.success-tick {
+  font-size: 4rem;
+  color: white;
+  background: #27ae60;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.btn-home {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

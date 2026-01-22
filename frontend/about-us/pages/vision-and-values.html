@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vision & Values - SMIC</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/about-us/css/vision.css" />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/shahjalalmosqueislamiccentre/"
+          >Facebook</a
+        >
+        <a href="#">Twitter</a>
+        <a href="https://www.instagram.com/smic_southampton/">Instagram</a>
+        <a
+          href="https://www.youtube.com/channel/UCuvJlzzyMhPoExa1GqQ_aNw/videos"
+          >YouTube</a
+        >
+      </div>
+      <div class="top-bar-content">
+        <div class="contact-info">
+          <span>📞 07411912205</span>
+          <span>📧smicsouthampton.co.uk</span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="logo-section">
+        <a
+          href="/"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+          "
+        >
+          <img
+            src="/images/mosque-logo.png"
+            alt="Mosque Logo"
+            class="logo-img"
+          />
+          <div class="school-name">Shahjalal Mosque<br />& Islamic Center</div>
+        </a>
+      </div>
+      <div class="hamburger" onclick="toggleMobileMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav class="nav-menu">
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">About Us</span>
+          <ul class="dropdown-content">
+            <li><a href="/about/overview">A Brief Overview</a></li>
+            <li><a href="/about/staff">Staff Directory</a></li>
+            <li><a href="/about/vision">Vision & Values</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">Services</span>
+          <ul class="dropdown-content">
+            <li><a href="/services/education">Education</a></li>
+            <li>
+              <a href="/services/marriage">Marriage/Nikah</a>
+            </li>
+            <li>
+              <a href="/services/funeral">Funeral/Janazah</a>
+            </li>
+            <li><a href="/services/ask-imam">Ask Imam</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">Audio & Video</span>
+          <ul class="dropdown-content">
+            <li><a href="/media/recordings">Recordings</a></li>
+            <li><a href="/media/gallery">Event Gallery</a></li>
+          </ul>
+        </div>
+
+        <a href="/donate" class="nav-donate-btn">Donate</a>
+
+        <a href="/login" class="portal-btn">Teacher Portal 🔒</a>
+      </nav>
+    </header>
+
+    <div class="page-hero">
+      <h1>Vision & Values</h1>
+    </div>
+
+    <div class="service-container">
+      <div class="breadcrumbs">
+        <a href="/">Home</a> &gt; <a href="#">About Us</a> &gt;
+        <span>Vision & Values</span>
+      </div>
+
+      <div class="content-layout">
+        <div class="text-content">
+          <h2 class="section-heading">Our Vision</h2>
+          <p class="text-block">
+            To create a vibrant, welcoming, and spiritual hub that serves the
+            religious, social, and educational needs of the Muslim community in
+            Southampton, while fostering understanding and harmony with the
+            wider society.
+          </p>
+
+          <blockquote class="quran-quote">
+            "You are the best community ever raised for humanity—you encourage
+            good, forbid evil, and believe in Allah."
+            <span>(Surah Al-Imran, 3:110)</span>
+          </blockquote>
+
+          <h3 class="sub-heading">Core Islamic Values</h3>
+          <p class="text-block">
+            Our center is built upon the timeless principles of Islam. We strive
+            to embody these values in every service we provide:
+          </p>
+
+          <ul class="values-list">
+            <li>
+              <strong>Ikhlas (Sincerity)</strong>
+              <p>
+                We perform all our actions purely for the pleasure of Allah
+                (SWT).
+              </p>
+            </li>
+            <li>
+              <strong>Ilm (Knowledge)</strong>
+              <p>
+                We believe education is the foundation of a strong community and
+                encourage lifelong learning.
+              </p>
+            </li>
+            <li>
+              <strong>Adl (Justice)</strong>
+              <p>
+                We are committed to fairness, integrity, and transparency in all
+                our dealings.
+              </p>
+            </li>
+            <li>
+              <strong>Rahmah (Compassion)</strong>
+              <p>
+                We serve humanity with kindness, empathy, and a helping hand for
+                those in need.
+              </p>
+            </li>
+            <li>
+              <strong>Khidmah (Service)</strong>
+              <p>
+                We see leadership as service to the people, working tirelessly
+                to support our neighbors.
+              </p>
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            <strong>Community Pledge</strong><br />
+            We pledge to maintain an environment that is safe, inclusive, and
+            respectful for all, regardless of background or ethnicity.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <h2>Shahjalal Mosque and Islamic Center</h2>
+      <p>121 Saint Mary's Rd, Southampton SO14 0BL</p>
+      <p>&copy; 2025 Shahjalal Mosque and Islamic Center</p>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
+  </body>
+</html>

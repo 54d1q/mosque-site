@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Portal Login</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/css/login.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header">
+          <img
+            src="/images/mosque-logo.png"
+            alt="School Logo"
+            class="login-logo"
+          />
+          <h2>Teacher Portal</h2>
+          <p>Please log in to access the dashboard</p>
+        </div>
+
+        <form id="login-form">
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn-login">Login 🔒</button>
+          <div style="text-align: right; margin-bottom: 15px">
+            <a
+              href="/forgot-password"
+              style="color: #1e4d2b; text-decoration: none; font-size: 0.9rem"
+            >
+              Forgot Password?
+            </a>
+          </div>
+
+          <p id="error-msg" class="error-message"></p>
+        </form>
+
+        <div class="login-footer">
+          <a href="/">&larr; Back to Main Website</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/js/login.js"></script>
+  </body>
+</html>

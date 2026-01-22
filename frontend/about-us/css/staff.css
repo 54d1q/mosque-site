@@ -1,0 +1,121 @@
+body {
+  background-color: #fcfcfc;
+}
+
+/* Hero Section (Reused Style) */
+.page-hero {
+  height: 250px;
+  background:
+    linear-gradient(rgba(30, 77, 43, 0.85), rgba(30, 77, 43, 0.7)),
+    url("../../../images/team.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.page-hero h1 {
+  font-size: 3rem;
+  font-family: serif;
+  margin: 0;
+}
+
+/* Container & Breadcrumbs */
+.service-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+.breadcrumbs {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+.breadcrumbs a {
+  color: #1e4d2b;
+  text-decoration: none;
+  font-weight: 600;
+}
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* Intro Text */
+.intro-text-block {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+.intro-text-block h2 {
+  color: #1e4d2b;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+.intro-text-block p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Staff Grid */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* Staff Card */
+.staff-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+.staff-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.staff-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Circle Image */
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 20px;
+  border: 4px solid #f0f0f0;
+}
+
+.staff-info h3 {
+  margin: 0;
+  color: #1e4d2b;
+  font-size: 1.3rem;
+}
+.role {
+  display: block;
+  color: #d4a017;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin: 5px 0 15px;
+  text-transform: uppercase;
+}
+.staff-info p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+}

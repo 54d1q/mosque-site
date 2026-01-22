@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Notices</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/css/admin.css" />
+    <link rel="stylesheet" href="/assets/css/sidebar.css" />
+    <link rel="stylesheet" href="/assets/css/notices.css" />
+  </head>
+  <body>
+    <div class="admin-wrapper">
+      <nav id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <div class="brand-flex">
+            <img
+              src="/images/mosque-logo.png"
+              alt="Logo"
+              class="sidebar-logo"
+            />
+            <span class="brand-text">Admin Panel</span>
+          </div>
+          <button id="sidebar-toggle" class="toggle-btn">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <ul class="nav-links">
+          <li>
+            <a href="/admin"
+              ><span class="nav-icon">🏠</span
+              ><span class="link-text">Dashboard</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/students"
+              ><span class="nav-icon">🎓</span
+              ><span class="link-text">Students</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/teachers"
+              ><span class="nav-icon">👨‍🏫</span
+              ><span class="link-text">Staff</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/attendance"
+              ><span class="nav-icon">📅</span
+              ><span class="link-text">Attendance</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/fees"
+              ><span class="nav-icon">💰</span
+              ><span class="link-text">Fees</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/notices" class="active"
+              ><span class="nav-icon">📢</span
+              ><span class="link-text">Notices</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/faq"
+              ><span class="nav-icon">❓</span
+              ><span class="link-text">FAQs</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/videos"
+              ><span class="nav-icon">📹</span
+              ><span class="link-text">Videos</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/gallery"
+              ><span class="nav-icon">🖼️</span
+              ><span class="link-text">Gallery</span></a
+            >
+          </li>
+        </ul>
+
+        <div class="sidebar-footer">
+          <a href="#" onclick="logout()" class="logout-link">
+            <span class="nav-icon">🚪</span
+            ><span class="link-text">Log Out</span>
+          </a>
+        </div>
+      </nav>
+
+      <main class="main-content">
+        <header class="page-header">
+          <div class="header-left">
+            <img src="/images/mosque-logo.png" alt="Logo" class="page-logo" />
+            <div>
+              <h1 class="page-title">Notice Board</h1>
+              <p class="subtitle">Manage public announcements</p>
+            </div>
+          </div>
+          <button id="mobile-menu-btn" class="mobile-menu-btn">
+            <span class="bar"></span><span class="bar"></span
+            ><span class="bar"></span>
+          </button>
+        </header>
+
+        <div class="notice-grid">
+          <div class="card form-card">
+            <div class="card-header">
+              <h3>➕ Add New Notice</h3>
+            </div>
+            <div class="card-body">
+              <form id="add-notice-form">
+                <div class="form-group">
+                  <label>Event Date</label>
+                  <input type="date" id="notice-date" required />
+                  <small class="note-text"
+                    >Notice automatically expires after this date.</small
+                  >
+                </div>
+                <div class="form-group">
+                  <label>Title</label>
+                  <input
+                    type="text"
+                    id="notice-title"
+                    placeholder="e.g. Eid Holidays"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Message / Details</label>
+                  <textarea
+                    id="notice-message"
+                    rows="4"
+                    placeholder="Enter details here..."
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Post Notice</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="card list-card">
+            <div class="card-header">
+              <h3>📋 Active & Past Notices</h3>
+            </div>
+            <div class="card-body" id="list-container">
+              <ul id="notice-list" class="styled-list">
+                <li>Loading...</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="success-overlay" class="success-anim-container">
+      <div class="success-tick">✔</div>
+    </div>
+
+    <script src="/assets/js/sidebar.js"></script>
+    <script src="/assets/js/notices.js"></script>
+  </body>
+</html>

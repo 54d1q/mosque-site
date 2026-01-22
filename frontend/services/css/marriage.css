@@ -1,0 +1,198 @@
+body {
+  background-color: #fcfcfc;
+}
+
+/* --- HERO SECTION --- */
+.page-hero {
+  height: 250px;
+  background:
+    linear-gradient(rgba(30, 77, 43, 0.85), rgba(30, 77, 43, 0.7)),
+    url("../../../images/Nikah.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  font-family: serif;
+  margin: 0;
+}
+
+/* --- CONTAINER & BREADCRUMBS --- */
+.service-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+.breadcrumbs {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.breadcrumbs a {
+  color: #1e4d2b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* --- MAIN LAYOUT (Split Screen) --- */
+.content-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Text takes more space, Image takes less */
+  gap: 50px;
+  align-items: start;
+}
+
+/* --- TEXT CONTENT --- */
+.text-content h2 {
+  color: #1e4d2b;
+  font-size: 2.2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.text-content h3 {
+  color: #333;
+  font-size: 1.4rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-left: 4px solid #d4a017; /* Gold Accent */
+  padding-left: 10px;
+}
+
+.text-content p {
+  line-height: 1.7;
+  color: #555;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+.highlight-box {
+  background-color: #fffbf0; /* Light Gold/Cream */
+  border: 1px solid #ffeeba;
+  color: #856404;
+  padding: 20px;
+  border-radius: 6px;
+  margin: 25px 0;
+  line-height: 1.6;
+}
+
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.requirements-list li {
+  padding: 10px 0 10px 25px;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+  color: #444;
+}
+
+.requirements-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #1e4d2b;
+  font-weight: bold;
+}
+
+/* --- BUTTONS --- */
+.action-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: #1e4d2b;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #153e21;
+}
+
+.btn-outline {
+  border: 2px solid #1e4d2b;
+  color: #1e4d2b;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background-color: #1e4d2b;
+  color: white;
+}
+
+/* --- IMAGE CONTENT (Certificate) --- */
+.image-content {
+  background: white;
+  padding: 15px;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.cert-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #eee;
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .content-layout {
+    grid-template-columns: 1fr; /* Stack vertically */
+  }
+
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+
+  .image-content {
+    margin-top: 30px;
+    order: -1; /* Move image to top on mobile (optional, remove line if you prefer it at bottom) */
+  }
+}
+.download-link {
+  color: #1e4d2b;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.download-link:hover {
+  color: #d4a017;
+}

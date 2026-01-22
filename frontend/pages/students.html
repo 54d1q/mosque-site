@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manage Students</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/admin.css" />
+    <link rel="stylesheet" href="/assets/css/sidebar.css" />
+    <link rel="stylesheet" href="/assets/css/students.css" />
+  </head>
+
+  <body>
+    <div class="admin-wrapper">
+      <nav id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <div class="brand-flex">
+            <img
+              src="/images/mosque-logo.png"
+              alt="Logo"
+              class="sidebar-logo"
+            />
+            <span class="brand-text">Admin Panel</span>
+          </div>
+          <button id="sidebar-toggle" class="toggle-btn">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <ul class="nav-links">
+          <li>
+            <a href="/admin"
+              ><span class="nav-icon">🏠</span>
+              <span class="link-text">Dashboard</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/students" class="active"
+              ><span class="nav-icon">🎓</span>
+              <span class="link-text">Students</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/teachers"
+              ><span class="nav-icon">👨‍🏫</span>
+              <span class="link-text">Staff</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/attendance"
+              ><span class="nav-icon">📅</span>
+              <span class="link-text">Attendance</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/fees"
+              ><span class="nav-icon">💰</span>
+              <span class="link-text">Fees</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/notices">
+              <span class="nav-icon">📢</span>
+              <span class="link-text">Notices</span>
+            </a>
+          </li>
+          <li>
+            <a href="/admin/faq"
+              ><span class="nav-icon">❓</span
+              ><span class="link-text">FAQs</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/videos"
+              ><span class="nav-icon">📹</span
+              ><span class="link-text">Videos</span></a
+            >
+          </li>
+          <li>
+            <a href="/admin/gallery"
+              ><span class="nav-icon">🖼️</span
+              ><span class="link-text">Gallery</span></a
+            >
+          </li>
+        </ul>
+
+        <div class="sidebar-footer">
+          <a href="#" onclick="logout()" class="logout-link">
+            <span class="nav-icon">🚪</span>
+            <span class="link-text">Log Out</span>
+          </a>
+        </div>
+      </nav>
+
+      <main class="main-content">
+        <header class="page-header">
+          <div class="header-left">
+            <img src="/images/mosque-logo.png" alt="Logo" class="page-logo" />
+            <div>
+              <h1 class="page-title">Student Management</h1>
+              <p class="subtitle">
+                Register new students and manage enrollment records
+              </p>
+            </div>
+          </div>
+
+          <button id="mobile-menu-btn" class="mobile-menu-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </header>
+
+        <div class="student-dashboard-grid">
+          <div class="card form-card">
+            <div class="card-header">
+              <h3>➕ Register New Student</h3>
+            </div>
+            <div class="card-body">
+              <form id="add-student-form" class="form-grid">
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input type="text" id="reg-first-name" required />
+                </div>
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input type="text" id="reg-last-name" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Gender</label>
+                  <select id="reg-gender" required>
+                    <option value="">Select</option>
+                    <option value="Boy">Boy</option>
+                    <option value="Girl">Girl</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Level</label>
+                  <select id="reg-level" required>
+                    <option>Loading...</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Date of Birth</label>
+                  <input type="date" id="reg-dob" required />
+                </div>
+                <div class="form-group">
+                  <label>Parent Name</label>
+                  <input type="text" id="reg-parent" required />
+                </div>
+
+                <div class="form-group full-width">
+                  <label>Address Line 1</label>
+                  <input type="text" id="reg-address" required />
+                </div>
+                <div class="form-group">
+                  <label>City</label>
+                  <input
+                    type="text"
+                    id="reg-city"
+                    value="Southampton"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Postcode</label>
+                  <input type="text" id="reg-postcode" required />
+                </div>
+
+                <div class="form-group">
+                  <label>Home Tel</label>
+                  <input type="tel" id="reg-home-tel" />
+                </div>
+                <div class="form-group">
+                  <label>Mobile Number</label>
+                  <input type="tel" id="reg-mobile" />
+                </div>
+                <div class="form-group">
+                  <label>Emergency Contact</label>
+                  <input type="tel" id="reg-emergency" required />
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" id="reg-email" />
+                </div>
+
+                <div class="form-group full-width">
+                  <label>Medical Info</label>
+                  <textarea
+                    id="reg-medical"
+                    rows="2"
+                    class="form-control"
+                    placeholder="Allergies, conditions..."
+                  ></textarea>
+                </div>
+                <div class="form-group full-width">
+                  <label>Doctor Details</label>
+                  <textarea
+                    id="reg-doctor"
+                    rows="2"
+                    class="form-control"
+                    placeholder="Dr Name & Surgery Tel"
+                  ></textarea>
+                </div>
+
+                <div class="button-container">
+                  <button type="submit" class="btn-primary">Add Student</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div
+            class="view-switcher"
+            style="
+              margin-bottom: 20px;
+              display: flex;
+              gap: 10px;
+              border-bottom: 2px solid #eee;
+              padding-bottom: 10px;
+            "
+          >
+            <button
+              id="btn-view-active"
+              class="btn-tab active"
+              onclick="switchView('active')"
+            >
+              👨‍🎓 Active Students
+            </button>
+            <button
+              id="btn-view-pending"
+              class="btn-tab"
+              onclick="switchView('pending')"
+            >
+              ⏳ Pending Applications
+            </button>
+          </div>
+
+          <div class="card list-card" id="student-list-card">
+            <div class="card-header flex-header">
+              <h3>🎓 Student Directory</h3>
+              <span id="student-counter" class="badge-count">Total: 0</span>
+            </div>
+            <div class="card-body">
+              <div class="filter-bar">
+                <div class="search-box">
+                  <span class="search-icon">🔍</span>
+                  <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search..."
+                  />
+                </div>
+                <select id="filter-gender">
+                  <option value="">All Genders</option>
+                  <option value="Boy">Boys</option>
+                  <option value="Girl">Girls</option>
+                </select>
+                <select id="filter-level">
+                  <option value="">All Levels</option>
+                </select>
+              </div>
+
+              <div class="table-container">
+                <table class="styled-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Gender</th>
+                      <th>Level</th>
+                      <th>Parent</th>
+                      <th>Address</th>
+                      <th>Contact</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="students-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card list-card"
+            id="pending-list-card"
+            style="display: none; border-left: 5px solid #f39c12"
+          >
+            <div class="card-header flex-header">
+              <h3 style="color: #d35400">⏳ Pending Approvals</h3>
+              <span
+                id="pending-counter"
+                class="badge-count"
+                style="background: #e67e22; color: white"
+                >0 New</span
+              >
+            </div>
+            <div class="card-body">
+              <p style="color: #666; font-style: italic; margin-bottom: 15px">
+                These students have applied online. Please
+                <strong>Approve</strong> to enroll them into a class or
+                <strong>Reject</strong> to delete the application.
+              </p>
+              <div class="table-container">
+                <table class="styled-table">
+                  <thead>
+                    <tr>
+                      <th>Applied On</th>
+                      <th>Name</th>
+                      <th>DOB</th>
+                      <th>Requested Level</th>
+                      <th>Parent</th>
+                      <th>Contact</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="pending-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card list-card"
+            id="student-list-card"
+            style="display: none"
+          >
+            <div class="card-header flex-header">
+              <h3>🎓 Student Directory</h3>
+              <span id="student-counter" class="badge-count">Total: 0</span>
+            </div>
+            <div class="card-body">
+              <div class="filter-bar">
+                <div class="search-box">
+                  <span class="search-icon">🔍</span>
+                  <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search..."
+                  />
+                </div>
+                <select id="filter-gender">
+                  <option value="">All Genders</option>
+                  <option value="Boy">Boys</option>
+                  <option value="Girl">Girls</option>
+                </select>
+                <select id="filter-level">
+                  <option value="">All Levels</option>
+                </select>
+              </div>
+
+              <div class="table-container">
+                <table class="styled-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Gender</th>
+                      <th>Level</th>
+                      <th>Parent</th>
+                      <th>Address</th>
+                      <th>Contact</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="students-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="edit-modal" class="modal-overlay" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Edit Student Details</h3>
+          <span class="close-x" onclick="closeEditModal()">&times;</span>
+        </div>
+        <form id="edit-student-form">
+          <input type="hidden" id="edit-student-id" />
+          <h3 id="edit-student-name" style="color: #1e4d2b; margin-top: 0"></h3>
+          <div
+            class="form-grid"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 15px;
+              margin-bottom: 15px;
+            "
+          >
+            <div class="form-group">
+              <label>Date of Birth</label>
+              <input
+                type="date"
+                id="edit-dob"
+                style="width: 100%; padding: 8px"
+              />
+            </div>
+            <div class="form-group">
+              <label>Age</label>
+              <input
+                type="text"
+                id="edit-age"
+                readonly
+                style="
+                  width: 100%;
+                  padding: 8px;
+                  background: #f0f0f0;
+                  color: #555;
+                "
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Level</label>
+            <select id="edit-level" style="width: 100%; padding: 8px"></select>
+          </div>
+
+          <fieldset
+            style="
+              border: 1px solid #ddd;
+              padding: 10px;
+              margin-bottom: 10px;
+              border-radius: 5px;
+            "
+          >
+            <legend style="font-weight: bold; color: #555">
+              Contact Details
+            </legend>
+            <div class="form-grid">
+              <div>
+                <label style="font-size: 0.8rem">Home Tel</label>
+                <input type="text" id="edit-home-tel" style="width: 100%" />
+              </div>
+              <div>
+                <label style="font-size: 0.8rem">Mobile</label>
+                <input type="text" id="edit-mobile" style="width: 100%" />
+              </div>
+              <div>
+                <label style="font-size: 0.8rem">Emergency</label>
+                <input type="text" id="edit-emergency" style="width: 100%" />
+              </div>
+              <div>
+                <label style="font-size: 0.8rem">Email</label>
+                <input type="email" id="edit-email" style="width: 100%" />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset
+            style="
+              border: 1px solid #ddd;
+              padding: 10px;
+              margin-bottom: 10px;
+              border-radius: 5px;
+            "
+          >
+            <legend style="font-weight: bold; color: #555">Address</legend>
+            <input
+              type="text"
+              id="edit-addr1"
+              placeholder="Address Line 1"
+              style="width: 100%; margin-bottom: 5px"
+            />
+            <div style="display: flex; gap: 5px">
+              <input
+                type="text"
+                id="edit-city"
+                placeholder="City"
+                style="flex: 1"
+              />
+              <input
+                type="text"
+                id="edit-postcode"
+                placeholder="Postcode"
+                style="width: 80px"
+              />
+            </div>
+          </fieldset>
+
+          <fieldset
+            style="
+              border: 1px solid #ddd;
+              padding: 10px;
+              margin-bottom: 10px;
+              border-radius: 5px;
+            "
+          >
+            <legend style="font-weight: bold; color: #555">
+              Medical & Doctor
+            </legend>
+            <label style="font-size: 0.8rem">Medical Info</label>
+            <textarea id="edit-medical" rows="2" style="width: 100%"></textarea>
+
+            <label style="font-size: 0.8rem; margin-top: 5px; display: block"
+              >Doctor Info</label
+            >
+            <textarea id="edit-doctor" rows="2" style="width: 100%"></textarea>
+          </fieldset>
+
+          <div
+            class="modal-actions"
+            style="display: flex; justify-content: flex-end; gap: 10px"
+          >
+            <button
+              type="button"
+              onclick="closeEditModal()"
+              class="btn-secondary"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="delete-modal" class="modal-overlay" style="display: none">
+      <div
+        class="modal-content"
+        style="max-width: 400px; text-align: center; padding: 25px"
+      >
+        <div style="font-size: 3rem; margin-bottom: 15px">⚠️</div>
+        <h3 style="margin-bottom: 10px; color: #c0392b">Delete Student?</h3>
+        <p style="color: #666; margin-bottom: 25px; line-height: 1.5">
+          Are you sure you want to delete <br />
+          <strong
+            id="delete-student-name"
+            style="color: #333; font-size: 1.1rem"
+            >this student</strong
+          >? <br /><span style="font-size: 0.9rem"
+            >This action cannot be undone.</span
+          >
+        </p>
+        <div style="display: flex; justify-content: center; gap: 15px">
+          <button
+            onclick="closeDeleteModal()"
+            class="btn-secondary"
+            style="width: 100px"
+          >
+            Cancel
+          </button>
+          <button
+            id="confirm-delete-btn"
+            class="btn-delete"
+            style="width: 100px"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="success-modal" class="modal-overlay" style="display: none">
+      <div
+        class="modal-content"
+        style="
+          max-width: 350px;
+          text-align: center;
+          padding: 30px;
+          border-radius: 15px;
+        "
+      >
+        <div
+          style="
+            width: 70px;
+            height: 70px;
+            background: #27ae60;
+            color: white;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+          "
+        >
+          ✔
+        </div>
+        <h3 style="color: #27ae60; margin: 0 0 10px 0; font-size: 1.5rem">
+          Success!
+        </h3>
+        <p
+          id="success-msg"
+          style="color: #555; margin-bottom: 25px; font-size: 1.1rem"
+        >
+          Action completed.
+        </p>
+        <button
+          onclick="closeSuccessModal()"
+          class="btn-primary"
+          style="width: 100%; padding: 12px"
+        >
+          OK
+        </button>
+      </div>
+    </div>
+    <div id="approve-modal" class="modal-overlay" style="display: none">
+      <div
+        class="modal-content"
+        style="max-width: 400px; text-align: center; padding: 25px"
+      >
+        <div style="font-size: 3rem; margin-bottom: 15px">✅</div>
+        <h3 style="margin-bottom: 10px; color: #27ae60">Approve Student?</h3>
+        <p
+          id="approve-modal-msg"
+          style="color: #666; margin-bottom: 25px; line-height: 1.5"
+        >
+          Are you sure you want to approve this enrollment?
+        </p>
+        <div style="display: flex; justify-content: center; gap: 15px">
+          <button
+            onclick="closeApproveModal()"
+            class="btn-secondary"
+            style="width: 100px"
+          >
+            Cancel
+          </button>
+          <button
+            id="confirm-approve-btn"
+            class="btn-primary"
+            style="background-color: #27ae60; border: none; width: 100px"
+          >
+            Approve
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="results-modal" class="modal-overlay" style="display: none">
+      <div
+        class="modal-content"
+        style="width: 500px; max-height: 90vh; overflow-y: auto"
+      >
+        <div class="modal-header">
+          <h3>Academic Results</h3>
+          <span class="close-x" onclick="closeResultsModal()">&times;</span>
+        </div>
+        <form id="results-form">
+          <input type="hidden" id="results-student-id" />
+          <h4 id="results-student-name" style="margin-top: 0; color: #555"></h4>
+
+          <div class="form-group" style="margin-bottom: 15px">
+            <label>Academic Year</label>
+            <select
+              id="result-year"
+              style="width: 100%; padding: 8px; font-weight: bold"
+            ></select>
+          </div>
+
+          <fieldset
+            style="
+              border: 1px solid #ddd;
+              padding: 15px;
+              margin-bottom: 15px;
+              border-radius: 5px;
+            "
+          >
+            <legend style="font-weight: bold; color: #1e4d2b">
+              Academic Scores (%)
+            </legend>
+
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px"
+            >
+              <div class="form-group">
+                <label style="font-size: 0.85rem">Sem 1</label>
+                <input
+                  type="number"
+                  id="res-sem1"
+                  step="0.1"
+                  oninput="calculatePreview()"
+                  style="padding: 8px"
+                />
+              </div>
+              <div class="form-group">
+                <label style="font-size: 0.85rem">Sem 2</label>
+                <input
+                  type="number"
+                  id="res-sem2"
+                  step="0.1"
+                  oninput="calculatePreview()"
+                  style="padding: 8px"
+                />
+              </div>
+
+              <div class="form-group">
+                <label style="font-size: 0.85rem">Sem 3</label>
+                <input
+                  type="number"
+                  id="res-sem3"
+                  step="0.1"
+                  oninput="calculatePreview()"
+                  style="padding: 8px"
+                />
+              </div>
+            </div>
+
+            <div
+              class="final-grade-box"
+              style="
+                margin-top: 15px;
+                font-size: 1rem;
+                padding: 10px;
+                background: #f9f9f9;
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <span style="color: #555">Average:</span>
+              <div>
+                <span
+                  id="preview-final"
+                  style="font-weight: bold; margin-right: 10px"
+                  >0.00%</span
+                >
+                <span id="preview-badge" class="grade-badge">--</span>
+              </div>
+            </div>
+          </fieldset>
+
+          <div id="hifz-results-section" style="display: none">
+            <fieldset
+              style="
+                border: 1px solid #d4a017;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                background: #fffdf5;
+              "
+            >
+              <legend style="font-weight: bold; color: #d4a017">
+                Memorization (10 Marks/Page)
+              </legend>
+              <div class="hifz-grid">
+                <div></div>
+                <div style="font-size: 0.75rem; color: #888">Start Page</div>
+                <div style="font-size: 0.75rem; color: #888">End Page</div>
+
+                <label style="font-size: 0.85rem; align-self: center"
+                  >Sem 1</label
+                >
+                <input
+                  type="number"
+                  id="mem-s1-start"
+                  oninput="calcHifzTotal()"
+                />
+                <input
+                  type="number"
+                  id="mem-s1-end"
+                  oninput="calcHifzTotal()"
+                />
+
+                <label style="font-size: 0.85rem; align-self: center"
+                  >Sem 2</label
+                >
+                <input
+                  type="number"
+                  id="mem-s2-start"
+                  oninput="calcHifzTotal()"
+                />
+                <input
+                  type="number"
+                  id="mem-s2-end"
+                  oninput="calcHifzTotal()"
+                />
+
+                <label style="font-size: 0.85rem; align-self: center"
+                  >Sem 3</label
+                >
+                <input
+                  type="number"
+                  id="mem-s3-start"
+                  oninput="calcHifzTotal()"
+                />
+                <input
+                  type="number"
+                  id="mem-s3-end"
+                  oninput="calcHifzTotal()"
+                />
+              </div>
+            </fieldset>
+
+            <fieldset
+              style="
+                border: 1px solid #2980b9;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                background: #f4faff;
+              "
+            >
+              <legend style="font-weight: bold; color: #2980b9">
+                Revision (5 Marks/Page)
+              </legend>
+              <div class="hifz-grid">
+                <div></div>
+                <div style="font-size: 0.75rem; color: #888">Start Page</div>
+                <div style="font-size: 0.75rem; color: #888">End Page</div>
+
+                <label style="font-size: 0.85rem; align-self: center"
+                  >Sem 1</label
+                >
+                <input
+                  type="number"
+                  id="rev-s1-start"
+                  oninput="calcHifzTotal()"
+                />
+                <input
+                  type="number"
+                  id="rev-s1-end"
+                  oninput="calcHifzTotal()"
+                />
+
+                <label style="font-size: 0.85rem; align-self: center"
+                  >Sem 2</label
+                >
+                <input
+                  type="number"
+                  id="rev-s2-start"
+                  oninput="calcHifzTotal()"
+                />
+                <input
+                  type="number"
+                  id="rev-s2-end"
+                  oninput="calcHifzTotal()"
+                />
+
+                <label style="font-size: 0.85rem; align-self: center"
+                  >Sem 3</label
+                >
+                <input
+                  type="number"
+                  id="rev-s3-start"
+                  oninput="calcHifzTotal()"
+                />
+                <input
+                  type="number"
+                  id="rev-s3-end"
+                  oninput="calcHifzTotal()"
+                />
+              </div>
+            </fieldset>
+
+            <div
+              style="
+                background: #333;
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+                font-weight: bold;
+              "
+            >
+              <span>Total Hifz Marks:</span>
+              <span id="hifz-total-display">0</span>
+            </div>
+          </div>
+
+          <div
+            class="modal-actions"
+            style="margin-top: 20px; display: flex; justify-content: flex-end"
+          >
+            <button type="submit" class="btn-primary">💾 Save Results</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <style>
+      .hifz-grid {
+        display: grid;
+        grid-template-columns: 50px 1fr 1fr; /* Label | Input | Input */
+        gap: 10px;
+        align-items: center;
+      }
+      .hifz-grid input {
+        padding: 8px;
+        font-size: 0.9rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box; /* Prevents input from overflowing */
+      }
+    </style>
+
+    <script src="/assets/js/sidebar.js"></script>
+    <script src="/assets/js/students.js"></script>
+  </body>
+</html>

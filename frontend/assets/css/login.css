@@ -1,0 +1,155 @@
+/* frontend/assets/css/login.css */
+
+:root {
+  --primary-green: #1e4d2b; /* Deep Forest Green */
+  --secondary-green: #2e6b40; /* Lighter Green */
+  --accent-gold: #d4a017; /* Gold */
+  --earth-beige: #f9f7f2; /* Background */
+  --text-dark: #2c3e50;
+  --text-light: #ffffff;
+  --danger-red: #e74c3c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--earth-beige);
+  color: var(--text-dark);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container limits width on large screens */
+.login-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* The Card Style */
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px; /* Looks good on mobile & desktop */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-top: 5px solid var(--primary-green); /* Brand accent */
+  text-align: center;
+}
+
+/* Header & Logo */
+.login-header {
+  margin-bottom: 30px;
+}
+
+.login-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.login-header h2 {
+  color: var(--primary-green);
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+}
+
+.login-header p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* Inputs */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--primary-green);
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: 0.3s;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(30, 77, 43, 0.1);
+}
+
+/* Button */
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.btn-login:hover {
+  background-color: var(--secondary-green);
+}
+
+/* Footer Links */
+.login-footer {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.login-footer a {
+  text-decoration: none;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.login-footer a:hover {
+  color: var(--primary-green);
+  text-decoration: underline;
+}
+
+/* Error Message */
+.error-message {
+  color: var(--danger-red);
+  font-size: 0.9rem;
+  margin-top: 15px;
+  min-height: 20px; /* Keeps space so layout doesn't jump */
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 20px;
+    box-shadow: none; /* Flatter look on mobile */
+    border: 1px solid #eee;
+    border-top: 5px solid var(--primary-green);
+  }
+}

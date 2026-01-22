@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video & Audio Recordings | SMIC</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/audio-video/css/audio-video.css" />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/shahjalalmosqueislamiccentre/"
+          >Facebook</a
+        >
+        <a href="#">Twitter</a>
+        <a href="https://www.instagram.com/smic_southampton/">Instagram</a>
+        <a
+          href="https://www.youtube.com/channel/UCuvJlzzyMhPoExa1GqQ_aNw/videos"
+          >YouTube</a
+        >
+      </div>
+      <div class="top-bar-content">
+        <div class="contact-info">
+          <span>📞 07411912205</span>
+          <span>📧smicsouthampton.co.uk</span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <a
+        href="/"
+        class="logo-section"
+        style="
+          text-decoration: none;
+          color: inherit;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        "
+      >
+        <img src="/images/mosque-logo.png" alt="Mosque Logo" class="logo-img" />
+        <div class="school-name">Shahjalal Mosque<br />& Islamic Center</div>
+      </a>
+
+      <div class="hamburger" onclick="toggleMobileMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <nav class="nav-menu">
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">About Us</span>
+          <ul class="dropdown-content">
+            <li><a href="/about/overview">A Brief Overview</a></li>
+            <li><a href="/about/staff">Staff Directory</a></li>
+            <li><a href="/about/vision">Vision & Values</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">Services</span>
+          <ul class="dropdown-content">
+            <li><a href="/services/education">Education</a></li>
+            <li><a href="/services/marriage">Marriage/Nikah</a></li>
+            <li><a href="/services/funeral">Funeral/Janazah</a></li>
+            <li><a href="/services/ask-imam">Ask Imam</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">Audio & Video</span>
+          <ul class="dropdown-content">
+            <li><a href="/media/recordings">Recordings</a></li>
+            <li><a href="/media/gallery">Event Gallery</a></li>
+          </ul>
+        </div>
+
+        <a href="/donate" class="nav-donate-btn">Donate</a>
+        <a href="/login" class="portal-btn">Teacher Portal 🔒</a>
+      </nav>
+    </header>
+
+    <div class="media-container">
+      <div id="grid-view">
+        <div class="media-breadcrumb">
+          <span class="breadcrumb-home"
+            ><a href="/">Home</a> <span class="separator">&gt;</span></span
+          >
+          <span>Audio & video</span> <span class="separator">&gt;</span>
+          <span class="current">Video & audio recordings</span>
+        </div>
+
+        <h1>Video and audio recordings</h1>
+        <p style="margin-bottom: 40px; color: #555">
+          A selection of videos and audio talks. You can find all our videos on
+          our
+          <a
+            href="https://www.youtube.com/channel/UCuvJlzzyMhPoExa1GqQ_aNw/videos"
+            target="_blank"
+            class="yt-link"
+            >YouTube channel</a
+          >.
+        </p>
+
+        <div class="video-grid" id="video-grid-container">
+          <p>Loading...</p>
+        </div>
+      </div>
+
+      <div id="detail-view" class="detail-view">
+        <div class="media-breadcrumb">
+          <span class="breadcrumb-home"
+            ><a href="/">Home</a> <span class="separator">&gt;</span></span
+          >
+          <a href="#" onclick="showGrid(event)">Recordings</a>
+          <span class="separator">&gt;</span>
+          <span class="current" id="breadcrumb-title">...</span>
+        </div>
+
+        <a href="#" onclick="showGrid(event)" class="back-link"
+          >&larr; Back to all recordings</a
+        >
+
+        <div class="video-frame">
+          <iframe
+            id="detail-iframe"
+            src=""
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <h1 id="detail-title" class="detail-title"></h1>
+        <span id="detail-date" class="detail-date"></span>
+        <div id="detail-desc" class="detail-content"></div>
+      </div>
+    </div>
+
+    <footer>
+      <h2>Shahjalal Mosque and Islamic Center</h2>
+      <p>121 Saint Mary's Rd, Southampton SO14 0BL</p>
+      <p>&copy; 2025 Shahjalal Mosque and Islamic Center</p>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
+    <script src="/audio-video/js/audio-video.js"></script>
+  </body>
+</html>

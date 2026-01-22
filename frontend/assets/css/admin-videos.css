@@ -1,0 +1,425 @@
+/* =======================================================
+   1. GLOBAL & RESET
+   ======================================================= */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+}
+
+/* =======================================================
+   2. SIDEBAR (MATCHING NOTICES EXACTLY)
+   ======================================================= */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #1e4d2b;
+  color: #fff;
+  transition: width 0.3s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar.collapsed {
+  width: 70px;
+}
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #f1c40f;
+}
+.sidebar.collapsed .nav-icon {
+  margin-right: 0;
+}
+
+/* =======================================================
+   3. MAIN CONTENT (DESKTOP)
+   ======================================================= */
+.main-content {
+  margin-left: 260px;
+  padding: 30px;
+  transition: margin-left 0.3s;
+  width: calc(100% - 260px);
+}
+.sidebar.collapsed ~ .main-content {
+  margin-left: 70px;
+  width: calc(100% - 70px);
+}
+
+/* =======================================================
+   4. PAGE HEADER (DESKTOP)
+   ======================================================= */
+.page-header {
+  background: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.page-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+.page-title {
+  margin: 0;
+  color: #1e4d2b;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+.subtitle {
+  margin: 2px 0 0 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* Hide Hamburger on Desktop */
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+/* =======================================================
+   5. VIDEO ADMIN LAYOUT (Based on notice-grid)
+   ======================================================= */
+.video-admin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns on desktop */
+  gap: 25px;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  height: 100%; /* Fill column height */
+}
+.card-header {
+  background-color: #fcfcfc;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+.card-header h3 {
+  margin: 0;
+  color: #1e4d2b;
+  font-size: 1.1rem;
+}
+.card-body {
+  padding: 20px;
+}
+
+/* =======================================================
+   6. FORMS & INPUTS
+   ======================================================= */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+}
+input,
+textarea {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 100%;
+}
+input:focus,
+textarea:focus {
+  border-color: #1e4d2b;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #1e4d2b;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+.btn-primary:hover {
+  background-color: #163e22;
+}
+
+/* =======================================================
+   7. LIST STYLES (Matching .notice-item)
+   ======================================================= */
+#list-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* Apply styles to .video-list-item OR direct children of #video-list if class is missing */
+.video-list-item,
+#video-list > div {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.video-content h4,
+#video-list > div h4 {
+  margin: 0 0 5px 0;
+  color: #1e4d2b;
+  font-size: 1rem;
+}
+.video-content p,
+#video-list > div p {
+  margin: 0;
+  color: #555;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.btn-delete {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.btn-delete:hover {
+  background: #ef9a9a;
+  color: white;
+}
+
+/* =======================================================
+   8. MOBILE RESPONSIVENESS (Exact copy from notices.css)
+   ======================================================= */
+@media (max-width: 768px) {
+  /* --- LAYOUT RESET --- */
+  .admin-wrapper {
+    display: block;
+  }
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+    padding-top: 80px;
+  }
+
+  /* --- MOBILE HEADER (GRID LAYOUT) --- */
+  .page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: white;
+    z-index: 5000;
+    padding: 0 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    border-radius: 0;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-left {
+    display: contents;
+  }
+  .page-logo {
+    width: 30px;
+    height: 30px;
+    grid-column: 1;
+  }
+
+  .header-left div {
+    grid-column: 2;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .page-title {
+    font-size: 1rem;
+    margin: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .subtitle {
+    display: none;
+  }
+
+  /* Hamburger */
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    grid-column: 3;
+  }
+  .bar {
+    width: 24px;
+    height: 3px;
+    background: #1e4d2b;
+    margin: 0 auto;
+    transition: 0.3s;
+  }
+  .mobile-menu-btn.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .mobile-menu-btn.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-btn.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* --- SIDEBAR DROPDOWN --- */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: white;
+    border-bottom: 3px solid #1e4d2b;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    z-index: 4999;
+  }
+
+  .sidebar.collapsed {
+    width: 100%;
+  }
+  .sidebar.active {
+    max-height: 600px;
+  }
+  .sidebar-header {
+    display: none;
+  }
+
+  .nav-links {
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links li a {
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 20px;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .nav-links li a:hover {
+    background: #f9f9f9;
+    border-left: 4px solid #1e4d2b;
+  }
+  .nav-icon {
+    color: #1e4d2b;
+    width: 25px;
+    text-align: center;
+    margin: 0;
+  }
+  .link-text {
+    display: inline-block;
+    font-size: 1rem;
+    color: #333;
+  }
+  .brand-text {
+    display: none;
+  }
+
+  /* --- RED LOGOUT BUTTON (PILL SHAPE) --- */
+  .sidebar-footer {
+    display: block;
+    padding: 20px;
+    border-top: none;
+    text-align: center;
+    background: transparent;
+  }
+
+  .logout-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 10px 25px;
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .logout-link:hover {
+    background-color: #ffcdd2;
+    transform: scale(1.05);
+  }
+
+  .logout-link .nav-icon {
+    color: #c62828;
+    margin-right: 8px;
+    font-size: 1.1rem;
+  }
+
+  /* --- VIDEO PAGE SPECIFIC FIXES --- */
+  .video-admin-grid {
+    grid-template-columns: 1fr; /* Stack columns */
+    gap: 20px;
+  }
+
+  input,
+  textarea {
+    height: auto;
+    font-size: 16px; /* Prevents zoom */
+  }
+}

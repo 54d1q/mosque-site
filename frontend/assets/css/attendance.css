@@ -1,0 +1,666 @@
+/* =======================================================
+   1. GLOBAL & RESET
+   ======================================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+/* Transitions for Smooth Interaction */
+.sidebar,
+.main-content,
+.bar,
+.nav-links li a {
+  transition: all 0.3s ease;
+}
+
+/* =======================================================
+   2. SIDEBAR (DESKTOP)
+   ======================================================= */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #1e4d2b;
+  color: #fff;
+  transition: width 0.3s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #f1c40f;
+}
+
+.sidebar.collapsed .nav-icon {
+  margin-right: 0;
+}
+/* =======================================================
+   3. MAIN CONTENT & COMPONENTS (DESKTOP)
+   ======================================================= */
+.main-content {
+  margin-left: 260px;
+  padding: 30px;
+  width: calc(100% - 260px);
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: 70px;
+  width: calc(100% - 70px);
+}
+
+/* Shared UI Components */
+.page-header,
+.card,
+#admin-controls {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+
+.page-header {
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.page-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+.page-title {
+  margin: 0;
+  color: #1e4d2b;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+.subtitle {
+  margin: 2px 0 0 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.user-info-box {
+  text-align: right;
+  line-height: 1.2;
+}
+.welcome-label {
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: 600;
+  display: block;
+}
+.user-name {
+  font-weight: bold;
+  color: #1e4d2b;
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* Attendance Controls & Filters */
+#admin-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  padding: 20px;
+}
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.filter-group label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #555;
+}
+.filter-group input,
+.filter-group select {
+  padding: 0 12px;
+  height: 42px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  min-width: 160px;
+}
+
+/* =======================================================
+   4. TABLES, BUTTONS & BADGES
+   ======================================================= */
+.card {
+  padding: 25px;
+}
+.table-container {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: separate;
+  margin-top: 15px;
+}
+th {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+  padding: 15px;
+  border-bottom: 2px solid #dee2e6;
+  text-align: left;
+}
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+/* Attendance Checkbox */
+.att-checkbox {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  accent-color: #27ae60;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Grouped Button Logic */
+.btn-password,
+.btn-logout,
+.btn-green,
+#admin-controls button {
+  height: 42px;
+  padding: 0 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-green {
+  background: #0e5029;
+  color: white;
+  padding: 12px 40px;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  height: auto;
+}
+#admin-controls button {
+  background-color: #3498db;
+  color: white;
+}
+.btn-password {
+  background: #fff9db;
+  color: #b07d10;
+  border: 1px solid #ffeaa7;
+}
+.btn-logout {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+/* Badges & Progress Indicators */
+.badge {
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+}
+.p-green {
+  background: #27ae60;
+}
+.p-red {
+  background: #c0392b;
+}
+.p-yellow {
+  background: #f1c40f;
+  color: #333;
+}
+.p-amber {
+  background: #f39c12;
+}
+
+/* =======================================================
+   5. TABS, SEARCH & MODALS
+   ======================================================= */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0e0e0;
+}
+.tab-btn {
+  padding: 12px 25px;
+  background: none;
+  border: none;
+  font-size: 1.05rem;
+  cursor: pointer;
+  color: #777;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+.tab-btn.active {
+  color: #2c3e50;
+  border-bottom: 3px solid #15681c;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  width: 400px;
+}
+/* Success Checkmark Animation */
+.success-anim-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  opacity: 0;
+}
+.success-anim-container.active {
+  opacity: 1;
+}
+.success-tick {
+  font-size: 5rem;
+  color: white;
+  background: #27ae60;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.5);
+}
+.success-anim-container.active .success-tick {
+  transform: scale(1);
+}
+
+/* =======================================================
+   6. MOBILE RESPONSIVENESS (< 768px)
+   ======================================================= */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 80px 15px 15px;
+  }
+
+  /* Fixed Header with Grid Layout */
+  .page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 5000;
+    margin: 0;
+    border-radius: 0;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px;
+  }
+
+  .header-left {
+    display: contents;
+  }
+  .page-logo {
+    width: 30px;
+    height: 30px;
+    grid-column: 1;
+  }
+  .header-left div {
+    grid-column: 2;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .page-title {
+    font-size: 1rem;
+    margin: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .subtitle,
+  .header-right {
+    display: none;
+  }
+
+  /* Hamburger Menu Button */
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    grid-column: 3;
+  }
+
+  .bar {
+    width: 24px;
+    height: 3px;
+    background: #1e4d2b;
+    margin: 0 auto;
+  }
+
+  /* X Transformation for Menu Button */
+  .mobile-menu-btn.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .mobile-menu-btn.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-btn.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Dropdown Sidebar (Mobile) */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: white;
+    border-bottom: 3px solid #1e4d2b;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    z-index: 4999;
+    display: block;
+  }
+
+  .sidebar.active {
+    max-height: 600px;
+  }
+  .sidebar.collapsed {
+    width: 100%;
+  } /* Prevents desktop 70px logic from breaking width */
+  .sidebar-header,
+  .brand-text {
+    display: none;
+  }
+
+  /* Mobile Nav Links Fix */
+  .nav-links li a {
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 15px 20px;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* RESTORED: Explicitly show link text on mobile */
+  .link-text {
+    display: inline-block !important;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .nav-icon {
+    color: #1e4d2b;
+    margin: 0;
+    width: 25px;
+  }
+
+  /* Logout Button (Pill Shape) */
+  .sidebar-footer {
+    border: none;
+    text-align: center;
+    background: transparent;
+    display: block;
+    padding: 15px;
+  }
+  .logout-link {
+    display: inline-flex;
+    padding: 10px 25px;
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+    border-radius: 30px;
+    justify-content: center;
+  }
+  .change-password-link {
+    display: inline-flex;
+    padding: 10px 25px;
+    border-radius: 30px;
+    justify-content: center;
+    background: #fff9db;
+    color: #b07d10;
+    border: 1px solid #ffeaa7;
+    text-decoration: none;
+    font-weight: bold;
+    align-items: center;
+    gap: 8px; /* Adds space between key icon and text */
+  }
+  /* Control & Table Adjustments */
+  #admin-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #admin-controls button,
+  .filter-group input,
+  .filter-group select {
+    width: 100%;
+  }
+  .table-container {
+    overflow-x: hidden;
+  }
+}
+
+/* Toggle Hamburger Display */
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+/* =======================================================
+   7. TEACHER MODE (MOBILE-SPECIFIC UI)
+   ======================================================= */
+@media (max-width: 768px) {
+  body.teacher-mode .nav-links > li:not(.teacher-mobile-only) {
+    display: none;
+  }
+
+  body.teacher-mode .teacher-mobile-only {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  body.teacher-mode .teacher-mobile-only a {
+    display: inline-flex;
+    padding: 10px 25px;
+    border-radius: 30px;
+    background-color: #fff9db;
+    color: #b07d10;
+    border: 1px solid #ffeaa7;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+/* =======================================================
+   8. STUDENT HISTORY TAB STYLING
+   ======================================================= */
+
+/* 1. Fix the Search Bar (Make it look like the filters) */
+#hist-search {
+  width: 100%;
+  height: 45px; /* Match standard input height */
+  padding: 0 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+#hist-search:focus {
+  border-color: #1e4d2b;
+  box-shadow: 0 0 0 3px rgba(30, 77, 43, 0.1);
+  outline: none;
+}
+.search-result-item {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+.search-result-item:hover {
+  background: #e8f5e9;
+}
+/* 2. Fix Month Navigation (Buttons on corners, Date in middle) */
+.month-nav {
+  display: flex;
+  justify-content: space-between; /* Pushes items to edges */
+  align-items: center; /* Vertically centers them */
+  background-color: #f8f9fa; /* Light grey container */
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+/* Style the Month Text */
+#hist-month-label {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1e4d2b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Style the Prev/Next Buttons */
+.month-nav button {
+  padding: 8px 20px;
+  background-color: rgb(20, 75, 29);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 80px;
+}
+
+.month-nav button:hover {
+  background-color: #1b8639;
+  color: white;
+  border-color: #1b8639;
+}
+
+/* 3. Fix the Giant Red Badge (Make it a centered pill) */
+#percentage-badge.badge {
+  display: inline-block; /* Don't stretch full width */
+  min-width: 220px; /* Set a nice width */
+  margin: 0 auto 25px auto; /* Center it horizontally */
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  border-radius: 50px; /* Pill shape */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Drop shadow */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Inner border effect */
+}
+
+/* Container to ensure the badge centers properly */
+.center-btn-container {
+  text-align: center;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 4. Polish the History Table */
+#history-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#history-table th {
+  background-color: #1e4d2b; /* Green Header */
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 12px 15px;
+}
+
+#history-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #555;
+}
+
+#history-table tr:last-child td {
+  border-bottom: none;
+}
+
+#history-table tr:hover {
+  background-color: #f9f9f9; /* Zebra hover effect */
+}

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Headteacher Dashboard</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/css/admin.css" />
+    <link rel="stylesheet" href="/assets/css/attendance.css" />
+    <style>
+      /* Temporary fix for modal override */
+      .modal-overlay {
+        z-index: 3000 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="admin-header">
+      <div class="header-left">
+        <img src="/images/mosque-logo.png" alt="Logo" class="admin-logo" />
+        <div>
+          <h1>Headteacher Portal</h1>
+          <span class="badge-admin">Administrator Access</span>
+        </div>
+      </div>
+
+      <div class="header-right-actions">
+        <button onclick="openPasswordModal()" class="btn-password-dash">
+          🔑 Change Password
+        </button>
+        <button onclick="logout()" class="btn-logout">Log Out 🚪</button>
+      </div>
+    </header>
+
+    <main class="dashboard-container">
+      <div class="welcome-banner">
+        <h2>Dashboard Overview</h2>
+        <p>
+          Manage school operations, staff, and student records from one central
+          hub.
+        </p>
+      </div>
+
+      <div class="launchpad-grid">
+        <a href="/admin/students" class="launch-card">
+          <div class="icon-box">🎓</div>
+          <h3>Student Management</h3>
+          <p>Add students, view profiles, and manage enrollment levels.</p>
+        </a>
+
+        <a href="/admin/attendance" class="launch-card">
+          <div class="icon-box">📅</div>
+          <h3>Attendance Records</h3>
+          <p>View daily attendance logs and track student presence.</p>
+        </a>
+
+        <a href="/admin/fees" class="launch-card">
+          <div class="icon-box">💰</div>
+          <h3>Fee Tracker</h3>
+          <p>Manage monthly payments and track outstanding balances.</p>
+        </a>
+
+        <a href="/admin/teachers" class="launch-card">
+          <div class="icon-box">👨‍🏫</div>
+          <h3>Staff & Teachers</h3>
+          <p>Register new teachers, reset passwords, and assign classes.</p>
+        </a>
+        <a href="/admin/notices" class="launch-card">
+          <div class="icon-box">📢</div>
+          <h3>Notice Board</h3>
+          <p>Post announcements and manage public news updates.</p>
+        </a>
+        <a href="/admin/faq" class="launch-card">
+          <div class="icon-box">❓</div>
+          <h3>Manage FAQs</h3>
+          <p>Add and delete Frequently Asked Questions regarding the mosque.</p>
+        </a>
+        <a href="/admin/videos" class="launch-card">
+          <div
+            class="icon-box"
+            style="background-color: #ffe0b2; color: #e67e22"
+          >
+            📹
+          </div>
+          <h3>Manage Videos</h3>
+          <p>Upload, delete videos & audio</p>
+        </a>
+        <a href="/admin/gallery" class="launch-card">
+          <div
+            class="icon-box"
+            style="background-color: #ffe0b2; color: #e67e22"
+          >
+            🖼️
+          </div>
+          <h3>Manage Gallery</h3>
+          <p>Upload, delete gallery images</p>
+        </a>
+      </div>
+    </main>
+
+    <div id="password-modal" class="modal-overlay" style="display: none">
+      <div
+        class="modal-content"
+        style="width: 400px; padding: 0; overflow: hidden"
+      >
+        <div
+          style="
+            background: #1e4d2b;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <h3 style="margin: 0">Security Update</h3>
+          <span
+            style="cursor: pointer; font-size: 1.5rem"
+            onclick="closePasswordModal()"
+            >&times;</span
+          >
+        </div>
+
+        <div style="padding: 30px; text-align: center">
+          <div style="font-size: 3rem; margin-bottom: 15px">🔒</div>
+          <p style="margin-bottom: 20px; color: #555; line-height: 1.5">
+            To change your password, we will send a secure reset link to your
+            registered email address.
+          </p>
+          <button
+            onclick="requestResetLink()"
+            class="btn-green"
+            style="width: 100%; padding: 12px; font-size: 1rem"
+          >
+            Send Reset Link
+          </button>
+          <p
+            id="reset-msg"
+            style="margin-top: 15px; font-size: 0.9rem; font-weight: bold"
+          ></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/js/admin.js"></script>
+  </body>
+</html>

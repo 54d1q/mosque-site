@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMIC Madrasah - Details</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/services/css/madrasah-detail.css" />
+    <link rel="stylesheet" href="/assets/css/donate.css" />
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/shahjalalmosqueislamiccentre/"
+          >Facebook</a
+        >
+        <a href="#">Twitter</a>
+        <a href="https://www.instagram.com/smic_southampton/">Instagram</a>
+        <a
+          href="https://www.youtube.com/channel/UCuvJlzzyMhPoExa1GqQ_aNw/videos"
+          >YouTube</a
+        >
+      </div>
+      <div class="top-bar-content">
+        <div class="contact-info">
+          <span>📞 07411912205</span>
+          <span>📧smicsouthampton.co.uk</span>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="logo-section">
+        <a
+          href="/"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+          "
+        >
+          <img src="/images/mosque-logo.png" alt="Logo" class="logo-img" />
+          <div class="school-name">Shahjalal Mosque<br />& Islamic Center</div>
+        </a>
+      </div>
+      <div class="hamburger" onclick="toggleMobileMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav class="nav-menu">
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">About Us</span>
+          <ul class="dropdown-content">
+            <li><a href="/about/overview">A Brief Overview</a></li>
+            <li><a href="/about/staff">Staff Directory</a></li>
+            <li><a href="/about/vision">Vision & Values</a></li>
+          </ul>
+        </div>
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">Services</span>
+          <ul class="dropdown-content">
+            <li><a href="/services/education">Education</a></li>
+            <li><a href="/services/marriage">Marriage/Nikah</a></li>
+            <li><a href="/services/funeral">Funeral/Janazah</a></li>
+            <li><a href="/services/ask-imam">Ask Imam</a></li>
+          </ul>
+        </div>
+        <div class="nav-item" onclick="toggleSubmenu(this)">
+          <span class="nav-link">Audio & Video</span>
+          <ul class="dropdown-content">
+            <li><a href="/media/recordings">Recordings</a></li>
+            <li><a href="/media/gallery">Event Gallery</a></li>
+          </ul>
+        </div>
+        <a href="/donate" class="nav-donate-btn">Donate</a>
+        <a href="/login" class="portal-btn">Teacher Portal 🔒</a>
+      </nav>
+    </header>
+
+    <div class="page-hero"><h1>SMIC Madrasah</h1></div>
+
+    <div class="service-container">
+      <div class="detail-content-card">
+        <p>
+          The Shahjalal Mosque and Islamic Center for boys and girls, offers a
+          combination of Islamic subjects and memorisation of the Qur’an.
+        </p>
+        <p>
+          We have a particular focus on character development, where a child
+          will acquire knowledge and life-skills, and learn to uphold core
+          Islamic values.
+        </p>
+
+        <div class="info-box">
+          <h4>Madrasah Opening Times:</h4>
+          <ul>
+            <li>Wednesday - Friday: 5:00 PM - 7:00 PM</li>
+            <li>Saturday - Sunday: 11:00 AM - Zuhr Salah (GMT)</li>
+            <li>Saturday - Sunday: 11:30 AM - Zuhr Salah (BST)</li>
+          </ul>
+        </div>
+
+        <div class="registration-section">
+          <h4>Registration</h4>
+          <button
+            onclick="
+              openAdmissionModal();
+              return false;
+            "
+            class="btn-registration"
+          >
+            Apply Online Now
+          </button>
+        </div>
+
+        <div class="resource-links">
+          <h4>Other Resources</h4>
+          <ul>
+            <!-- <li>
+              📚
+              <a
+                href="https://drive.google.com/drive/folders/1YA6wSFDvF8TeHbBxZ4G8TpOSV455RGQt?usp=sharing"
+                target="_blank"
+                >Find our syllabus here</a
+              >
+            </li> -->
+            <li>
+              🗂️
+              <a
+                href="https://drive.google.com/drive/folders/1YA6wSFDvF8TeHbBxZ4G8TpOSV455RGQt?usp=sharing"
+                target="_blank"
+                >Find resources here</a
+              >
+            </li>
+            <!-- <li>🎯 <a href="#" target="_blank">Find target sheets here</a></li> -->
+          </ul>
+        </div>
+        <a href="/services/education" class="btn-outline"
+          >← Back to Education</a
+        >
+      </div>
+    </div>
+
+    <div id="admission-modal" class="modal-overlay" style="display: none">
+      <div class="modal-content" style="max-width: 650px">
+        <div class="modal-header">
+          <h3 style="color: #1e4d2b; margin: 0">Student Admission</h3>
+          <span class="close-x" onclick="closeAdmissionModal()">&times;</span>
+        </div>
+        <div class="card-body">
+          <p>
+            Please fill in the form below before coming to the masjid for
+            admission.
+          </p>
+          <form id="admission-form" class="form-grid">
+            <div class="form-group">
+              <label>First Name</label
+              ><input
+                type="text"
+                id="adm-first-name"
+                placeholder="e.g. Yusuf"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label
+              ><input
+                type="text"
+                id="adm-last-name"
+                placeholder="e.g. Ahmed"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Gender</label
+              ><select id="adm-gender" required>
+                <option value="">Select Gender</option>
+                <option value="Boy">Boy</option>
+                <option value="Girl">Girl</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Preferred Level (Optional)</label
+              ><select id="adm-level">
+                <option value="">-- Select Level --</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Date of Birth</label
+              ><input type="date" id="adm-dob" required />
+            </div>
+            <div class="form-group">
+              <label>Parent / Guardian Name</label
+              ><input
+                type="text"
+                id="adm-parent-name"
+                placeholder="e.g. Mohammed Ahmed"
+                required
+              />
+            </div>
+            <div class="form-group full-width">
+              <label>Address Line 1</label
+              ><input
+                type="text"
+                id="adm-address-line1"
+                placeholder="123 High Street"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>City</label
+              ><input
+                type="text"
+                id="adm-city"
+                placeholder="Southampton"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Postcode</label
+              ><input
+                type="text"
+                id="adm-postcode"
+                placeholder="SO14 0BL"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Home Telephone</label
+              ><input
+                type="tel"
+                id="adm-home-phone"
+                placeholder="e.g. 023 80..."
+              />
+            </div>
+            <div class="form-group">
+              <label>Mobile Number</label
+              ><input
+                type="tel"
+                id="adm-mobile-phone"
+                placeholder="e.g. 077..."
+              />
+            </div>
+            <div class="form-group">
+              <label>Emergency Contact</label
+              ><input
+                type="tel"
+                id="adm-emergency-phone"
+                placeholder="Emergency Number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label
+              ><input
+                type="email"
+                id="adm-email"
+                placeholder="parent@example.com"
+              />
+            </div>
+            <div class="form-group full-width">
+              <label>Medical Info / Allergies</label
+              ><textarea
+                id="adm-medical-info"
+                rows="2"
+                placeholder="List any medical conditions..."
+              ></textarea>
+            </div>
+            <div class="form-group full-width">
+              <label>Doctor's Name & Tel</label
+              ><textarea
+                id="adm-doctor-details"
+                rows="2"
+                placeholder="Dr. Name and Surgery Number"
+              ></textarea>
+            </div>
+
+            <p class="note-text full-width">
+              * Must provide either Phone OR Email for communication.
+            </p>
+            <div
+              class="full-width"
+              style="
+                margin-top: 15px;
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+              "
+            >
+              <input
+                type="checkbox"
+                id="adm-terms"
+                style="width: 20px; height: 20px; margin-top: 2px"
+                required
+              />
+              <label
+                for="adm-terms"
+                style="
+                  font-size: 0.9rem;
+                  font-weight: normal;
+                  color: #333;
+                  cursor: pointer;
+                "
+              >
+                I have read and agree to the
+                <a
+                  href="#"
+                  onclick="
+                    openTermsModal();
+                    return false;
+                  "
+                  style="
+                    color: #1e4d2b;
+                    font-weight: bold;
+                    text-decoration: underline;
+                  "
+                  >Class Rules & Regulations</a
+                >.
+              </label>
+            </div>
+            <div class="button-container">
+              <button type="submit" class="btn-primary">
+                Submit Application
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="terms-modal"
+      class="modal-overlay"
+      style="display: none; z-index: 3000"
+    >
+      <div
+        class="modal-content"
+        style="max-width: 600px; max-height: 80vh; overflow-y: auto"
+      >
+        <div class="modal-header">
+          <h3>Class Rules & Regulations</h3>
+          <span class="close-x" onclick="closeTermsModal()">&times;</span>
+        </div>
+        <div
+          class="card-body"
+          style="font-size: 0.95rem; line-height: 1.6; color: #444"
+        >
+          <ol style="padding-left: 20px; margin: 0">
+            <li>
+              All children must dress appropriately- for boys, A Thawb/Jubba and
+              a Topi.
+            </li>
+            <li>
+              All girls must wear a full length Burkha/ Abaaya, Shalwar and a
+              Scarf, which covers all the hair (no pins). Tights, Jeans, short
+              sleeve or any other non Islamic clothing will not be allowed.
+            </li>
+            <li>
+              Punctual attendance from 11.30am to 1.45pm (wintertime: 11.00am to
+              1.00pm) Saturday and Sunday and 5.00pm to 7.00pm Wednesday to
+              Friday. Students must arrive on time for classes and collected by
+              parent / guardian at end of class.
+            </li>
+            <li>
+              Parents/guardians must ensure the child brings their own books,
+              Qaida, siphara, Qur’an, etc. for each class.
+            </li>
+            <li>
+              All absences must be explained by a note signed by the
+              parent/guardian upon return.
+            </li>
+            <li>The method of teaching will be at the teacher’s discretion.</li>
+            <li>
+              Parents/guardians shall be expected to ensure that the child
+              prepares for his/her lessons at home.
+            </li>
+            <li>
+              Any queries or complaints should be made only to the head teacher
+              or the Welfare Secretary. There must be no interruptions made by
+              any parent/guardian whilst class is in progress.
+            </li>
+            <li>
+              Any behavioural problems from a student will not be tolerated and
+              the student may be suspended.
+            </li>
+            <li>
+              Parents/guardians should notify the head teacher prior to
+              admission of any health problems that their child has. Also keep
+              the mosque informed of the child’s health.
+            </li>
+            <li>
+              Parents/guardians will not interfere with regards to the running
+              and arrangements of the classes.
+            </li>
+            <li>
+              Class fees must be paid monthly at the beginning of each month.
+            </li>
+            <li>
+              Children are not allowed to attend classes with mobile phones;
+              hand held games, iPods, iPads, mp3s, knives, chewing gum etc. Any
+              child found to be in possession of any of these items will have
+              them confiscated immediately and may not be returned to the child.
+              They may bring drinks and snacks for break time.
+            </li>
+            <li>
+              All the above Rules and Regulations and any further rules decided
+              by the head teacher or committee will have to be followed.
+            </li>
+            <li>
+              DATA PERMISSION: I give permission for the Mosque to store this
+              data securely for administrative purposes. We have safeguards in
+              place to protect your data.
+            </li>
+          </ol>
+          <div style="margin-top: 20px; text-align: right">
+            <button
+              class="btn-primary"
+              onclick="closeTermsModal()"
+              style="width: auto; padding: 8px 20px"
+            >
+              I Understand
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="success-overlay" class="success-anim-container">
+      <div class="success-content">
+        <div class="success-tick">✔</div>
+        <h2>Application Sent!</h2>
+        <p>We have received your admission details.</p>
+        <button
+          class="btn-home"
+          onclick="window.location.href = '/services/education'"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <footer>
+      <h2>Shahjalal Mosque and Islamic Center</h2>
+      <p>121 Saint Mary's Rd, Southampton SO14 0BL</p>
+      <p>&copy; 2025 Shahjalal Mosque and Islamic Center</p>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
+    <script src="/services/js/madrasah-detail.js"></script>
+  </body>
+</html>

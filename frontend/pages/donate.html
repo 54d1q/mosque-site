@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate - SMIC</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/donate.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <head>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=GBP&components=buttons"></script>
+    </head>
+  </head>
+  <body>
+    <header class="donate-navbar">
+      <div class="nav-content">
+        <a href="/" class="brand-link">
+          <img src="/images/mosque-logo.png" alt="Logo" class="nav-logo" />
+          <div class="brand-text">Shahjalal Mosque<br />& Islamic Center</div>
+        </a>
+        <a href="/" class="close-btn">
+          <span style="font-size: 1.2rem; margin-right: 5px">✕</span> Close
+        </a>
+      </div>
+    </header>
+
+    <main class="donate-wrapper">
+      <div class="donate-container">
+        <div class="donate-intro">
+          <h1>Support Our Community</h1>
+          <p>
+            Your generous donation helps us maintain the Masjid, support
+            education, and serve the community.
+          </p>
+        </div>
+
+        <div class="donate-card">
+          <div class="step-label">1. Choose Amount</div>
+          <div class="amount-grid">
+            <button type="button" class="amt-btn active" data-val="10">
+              £10
+            </button>
+            <button type="button" class="amt-btn" data-val="20">£20</button>
+            <button type="button" class="amt-btn" data-val="50">£50</button>
+            <button type="button" class="amt-btn" data-val="100">£100</button>
+            <div class="custom-amt">
+              <span>£</span>
+              <input type="number" id="custom-amount" placeholder="Other" />
+            </div>
+          </div>
+
+          <div class="step-label" style="margin-top: 25px">
+            2. Payment Method
+          </div>
+          <div class="payment-tabs">
+            <div class="pay-tab active" data-target="card">💳 Card</div>
+            <div class="pay-tab" data-target="paypal">
+              <span style="color: #003087; font-weight: bold">Pay</span
+              ><span style="color: #009cde; font-weight: bold">Pal</span>
+            </div>
+          </div>
+
+          <form id="card-form" class="payment-content active">
+            <div class="input-group">
+              <label>Name on Card</label>
+              <input
+                type="text"
+                id="card-name"
+                placeholder="e.g. Mr A Smith"
+                required
+              />
+            </div>
+
+            <div id="payment-element"></div>
+
+            <button type="submit" class="donate-submit-btn">
+              Donate <span id="donate-total">£10</span>
+            </button>
+
+            <p class="secure-text">🔒 Secure SSL Encrypted Payment</p>
+          </form>
+
+          <div id="paypal-form" class="payment-content">
+            <p style="text-align: center; color: #666; margin-bottom: 15px">
+              Continue securely with PayPal
+            </p>
+            <div id="paypal-button-container"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="success-overlay" class="success-anim-container">
+      <div class="success-content">
+        <div class="success-tick">✔</div>
+        <h2>Thank You!</h2>
+        <p>Your donation has been received.</p>
+        <button onclick="window.location.href='/'" class="btn-home">
+          Return Home
+        </button>
+      </div>
+    </div>
+
+    <script src="/assets/js/donate.js"></script>
+  </body>
+</html>
