@@ -9,8 +9,8 @@ services:
       - "80:3000"
     environment:
       - NODE_ENV=production
-      # CRITICAL: Host is changed from 'localhost' to 'db'
-      - DATABASE_URL=postgres://postgres:20643@db:5432/project1_db
+      # Connects using the variables below
+      - DATABASE_URL=postgres://${ORCALE_DB_USER}:${ORCALE_DB_PASSWORD}@db:5432/${ORCALE_DB_NAME}
     env_file:
       - backend/.env
     depends_on:
@@ -21,9 +21,9 @@ services:
     image: postgres:15
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 20643
-      POSTGRES_DB: project1_db
+      POSTGRES_USER: ${ORCALE_DB_USER}
+      POSTGRES_PASSWORD: ${ORCALE_DB_PASSWORD}
+      POSTGRES_DB: ${ORCALE_DB_NAME}
     volumes:
       - pgdata:/var/lib/postgresql/data
 
