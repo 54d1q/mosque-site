@@ -19,5 +19,5 @@ Thumbs.db
 .vscode/launch.json
 
 
-database_setup.sql
-create_admin.js
+backend/database_setup.sql
+backend/create_admin.js
