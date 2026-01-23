@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You - SMIC</title>
+    <link rel="icon" href="/images/mosque-logo.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/donate.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+      body {
+        background: #f4f7f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      .thankyou-card {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        max-width: 400px;
+      }
+      .success-tick {
+        font-size: 3rem;
+        color: white;
+        background: #27ae60;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 20px;
+      }
+      h2 {
+        color: #1e4d2b;
+        margin-bottom: 10px;
+      }
+      p {
+        color: #555;
+        line-height: 1.5;
+        margin-bottom: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="thankyou-card">
+      <div id="status-content">
+        <h2>Processing...</h2>
+        <p>Please wait while we confirm your donation.</p>
+      </div>
+    </div>
+    <script>
+      async function checkStatus() {
+        try {
+          const response = await fetch("/config");
+          const { publishableKey } = await response.json();
+
+          // 2. Initialize Stripe
+          const stripe = Stripe(publishableKey);
+
+          // 3. Get the Secret from URL
+          const clientSecret = new URLSearchParams(window.location.search).get(
+            "payment_intent_client_secret",
+          );
+
+          if (!clientSecret) {
+            window.location.href = "/"; // No key? Go home.
+            return;
+          }
+
+          // 4. Ask Stripe for the status
+          const { paymentIntent } =
+            await stripe.retrievePaymentIntent(clientSecret);
+          const content = document.getElementById("status-content");
+
+          switch (paymentIntent.status) {
+            case "succeeded":
+              content.innerHTML = `
+                  <div class="success-tick">✔</div>
+                  <h2>Jazakallah Khair!</h2>
+                  <p>May Allah accept your donation and build your house in Jannah.</p>
+                  <a href="/" class="btn-home" style="text-decoration:none; display:inline-block; padding: 10px 20px; background: #1e4d2b; color: white; border-radius: 20px;">Return Home</a>
+              `;
+              break;
+            case "processing":
+              content.innerHTML = `<h2>Processing...</h2><p>Your payment is being finalized.</p>`;
+              break;
+            case "requires_payment_method":
+              content.innerHTML = `<h2>Payment Failed</h2><p>We could not process your donation.</p><a href="/donate.html" class="btn-home">Try Again</a>`;
+              break;
+            default:
+              content.innerHTML = `<h2>Something went wrong</h2><p>Please contact support.</p>`;
+              break;
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      checkStatus();
+    </script>
+  </body>
+</html>
