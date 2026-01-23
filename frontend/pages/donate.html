@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,10 +8,6 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="/assets/css/donate.css" />
     <script src="https://js.stripe.com/v3/"></script>
-    <head>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=GBP&components=buttons"></script>
-    </head>
   </head>
   <body>
     <header class="donate-navbar">
@@ -20,9 +16,7 @@
           <img src="/images/mosque-logo.png" alt="Logo" class="nav-logo" />
           <div class="brand-text">Shahjalal Mosque<br />& Islamic Center</div>
         </a>
-        <a href="/" class="close-btn">
-          <span style="font-size: 1.2rem; margin-right: 5px">✕</span> Close
-        </a>
+        <a href="/" class="close-btn">✕ Close</a>
       </div>
     </header>
 
@@ -30,10 +24,19 @@
       <div class="donate-container">
         <div class="donate-intro">
           <h1>Support Our Community</h1>
-          <p>
-            Your generous donation helps us maintain the Masjid, support
-            education, and serve the community.
-          </p>
+          <p>Your generous donation helps us maintain the Masjid.</p>
+
+          <div class="verse-box">
+            <p class="arabic-text">
+              مَنْ بَنَى مَسْجِدًا لِلَّهِ بَنَى اللَّهُ لَهُ بَيْتًا فِي
+              الْجَنَّةِ
+            </p>
+            <p class="translation">
+              "Whoever builds a mosque for Allah, Allah will build for him a
+              house like it in Paradise."
+            </p>
+            <span class="source">— Sahih Muslim 533</span>
+          </div>
         </div>
 
         <div class="donate-card">
@@ -51,43 +54,25 @@
             </div>
           </div>
 
-          <div class="step-label" style="margin-top: 25px">
-            2. Payment Method
-          </div>
-          <div class="payment-tabs">
-            <div class="pay-tab active" data-target="card">💳 Card</div>
-            <div class="pay-tab" data-target="paypal">
-              <span style="color: #003087; font-weight: bold">Pay</span
-              ><span style="color: #009cde; font-weight: bold">Pal</span>
-            </div>
+          <div class="fee-cover-box">
+            <input type="checkbox" id="cover-fee-checkbox" />
+            <label for="cover-fee-checkbox">
+              Add <strong id="fee-amount">£0.26</strong> to cover transaction
+              fees.
+            </label>
           </div>
 
-          <form id="card-form" class="payment-content active">
-            <div class="input-group">
-              <label>Name on Card</label>
-              <input
-                type="text"
-                id="card-name"
-                placeholder="e.g. Mr A Smith"
-                required
-              />
-            </div>
+          <div class="step-label">2. Payment Details</div>
 
-            <div id="payment-element"></div>
+          <form id="card-form">
+            <div id="payment-element" style="margin-bottom: 20px"></div>
 
             <button type="submit" class="donate-submit-btn">
-              Donate <span id="donate-total">£10</span>
+              Donate <span id="donate-total">£10.26</span>
             </button>
 
             <p class="secure-text">🔒 Secure SSL Encrypted Payment</p>
           </form>
-
-          <div id="paypal-form" class="payment-content">
-            <p style="text-align: center; color: #666; margin-bottom: 15px">
-              Continue securely with PayPal
-            </p>
-            <div id="paypal-button-container"></div>
-          </div>
         </div>
       </div>
     </main>
@@ -95,9 +80,9 @@
     <div id="success-overlay" class="success-anim-container">
       <div class="success-content">
         <div class="success-tick">✔</div>
-        <h2>Thank You!</h2>
-        <p>Your donation has been received.</p>
-        <button onclick="window.location.href='/'" class="btn-home">
+        <h2>Jazakallah Khair!</h2>
+        <p>May Allah accept your donation and build your house in Jannah.</p>
+        <button onclick="window.location.href = '/'" class="btn-home">
           Return Home
         </button>
       </div>

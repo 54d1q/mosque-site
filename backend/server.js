@@ -143,6 +143,9 @@ app.get("/admin/gallery", isAdmin, (req, res) => {
 app.get("/donate", (req, res) =>
   res.sendFile(path.join(__dirname, "../frontend/pages/donate.html")),
 );
+app.get("/thankyou", (req, res) =>
+  res.sendFile(path.join(__dirname, "../frontend/pages/thankyou.html")),
+);
 app.get("/services/education", (req, res) =>
   res.sendFile(
     path.join(__dirname, "../frontend/services/category/education.html"),
@@ -1478,20 +1481,25 @@ app.delete("/api/notices/:id", async (req, res) => {
   }
 });
 app.post("/api/create-payment-intent", async (req, res) => {
-  const { amount } = req.body;
-
   try {
+    const { amount } = req.body; // Frontend sends decimal
+
+    // 1. Round to the nearest penny to avoid floating point errors
+    // 10.32 * 100 = 1032
+    const amountInPence = Math.round(parseFloat(amount) * 100);
+
+    // 2. Create the Intent
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount * 100, // Convert to pence
+      amount: amountInPence, // Send INTEGER, not decimal
       currency: "gbp",
-      payment_method_types: ["card"],
+      automatic_payment_methods: { enabled: true },
     });
 
-    res.send({
-      clientSecret: paymentIntent.client_secret,
-    });
-  } catch (e) {
-    res.status(500).send({ error: e.message });
+    // 3. Send back the secret
+    res.send({ clientSecret: paymentIntent.client_secret });
+  } catch (error) {
+    console.error("Backend Error:", error);
+    res.status(500).send({ error: error.message });
   }
 });
 // --- FAQ API ROUTES (Fixed for Postgres) ---
